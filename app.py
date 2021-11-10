@@ -6,6 +6,7 @@ import Adafruit_DHT
 import RPi.GPIO as GPIO
 import adafruit_tsl2591
 import board
+app = Flask(__name__)
 
 # light sensor
 i2c = board.I2C()
@@ -28,15 +29,12 @@ def readChannel(channel):
     return data
 
 
-app = Flask(__name__)
-
-
 @app.route('/')
 def index():
-    luminosity = round(sensor.lux,1)
+    luminosity = round(sensor.lux, 1)
     soil_moisture = readChannel(0)
     humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
-    return render_template('index.html', luminosity, soil_moisture, temperature, humidity)
+    return render_template('index.html', luminosity=luminosity, soil_moisture=soil_moisture, temperature=temperature, humidity=humidity)
 
 
 if __name__ == '__main__':
