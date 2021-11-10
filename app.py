@@ -1,61 +1,43 @@
 from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
-from send_mail import send_mail
+import spidev
+import os
+import time
+import Adafruit_DHT
+import RPi.GPIO as GPIO
+import adafruit_tsl2591
+import board
+
+# light sensor
+i2c = board.I2C()
+sensor = adafruit_tsl2591.TSL2591(i2c)
+sensor.gain = adafruit_tsl2591.GAIN_LOW
+# soil moisture converter
+spi = spidev.SpiDev()
+spi.open(0, 0)
+spi.max_speed_hz = 1000000
+
+GPIO.setmode(GPIO.BCM)
+
+DHT_SENSOR = Adafruit_DHT.DHT22
+DHT_PIN = 4
+
+
+def readChannel(channel):
+    val = spi.xfer2([1, (8+channel) << 4, 0])
+    data = ((val[1] & 3) << 8) + val[2]
+    return data
+
 
 app = Flask(__name__)
-
-ENV = 'dev'
-
-if ENV == 'dev':
-    app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = ''
-else:
-    app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = ''
-
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
-
-
-class Feedback(db.Model):
-    __tablename__ = 'feedback'
-    id = db.Column(db.Integer, primary_key=True)
-    customer = db.Column(db.String(200), unique=True)
-    dealer = db.Column(db.String(200))
-    rating = db.Column(db.Integer)
-    comments = db.Column(db.Text())
-
-    def __init__(self, customer, dealer, rating, comments):
-        self.customer = customer
-        self.dealer = dealer
-        self.rating = rating
-        self.comments = comments
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
-
-
-@app.route('/submit', methods=['POST'])
-def submit():
-    if request.method == 'POST':
-        customer = request.form['customer']
-        dealer = request.form['dealer']
-        rating = request.form['rating']
-        comments = request.form['comments']
-        # print(customer, dealer, rating, comments)
-        if customer == '' or dealer == '':
-            return render_template('index.html', message='Please enter required fields')
-        if db.session.query(Feedback).filter(Feedback.customer == customer).count() == 0:
-            data = Feedback(customer, dealer, rating, comments)
-            db.session.add(data)
-            db.session.commit()
-            send_mail(customer, dealer, rating, comments)
-            return render_template('success.html')
-        return render_template('index.html', message='You have already submitted feedback')
+    luminosity = round(sensor.lux,1)
+    soil_moisture = readChannel(0)
+    humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
+    return render_template('index.html', luminosity, soil_moisture, temperature, humidity)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
