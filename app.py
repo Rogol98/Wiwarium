@@ -4,8 +4,9 @@ import os
 import time
 import Adafruit_DHT
 import RPi.GPIO as GPIO
-import adafruit_tsl2591
 import board
+import adafruit_tsl2591
+
 app = Flask(__name__)
 
 # light sensor
@@ -38,4 +39,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0",port=80, debug=True)
