@@ -27,7 +27,7 @@ def main():
    # Pass the template data into the template main.html and return it to the user
    return render_template('main.html', **templateData)
 
-# The function below is executed when someone requests a URL with the pin number and action in it:
+# The function below is executed when someone requests an URL with the pin number and action in it:
 @app.route("/<changePin>/<action>")
 def action(changePin, action):
    # Convert the pin from the URL into an integer:
@@ -54,6 +54,10 @@ def action(changePin, action):
    }
 
    return render_template('main.html', **templateData)
+
+@app.route("/diagrams")
+def diagrams():
+   return 0
 
 if __name__ == "__main__":
    app.run(host='0.0.0.0', port=80, debug=True)
