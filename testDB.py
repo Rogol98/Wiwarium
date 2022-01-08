@@ -22,6 +22,11 @@ GPIO.setmode(GPIO.BCM)
 DHT_SENSOR = Adafruit_DHT.DHT22
 DHT_PIN = 4
 
+def readChannel(channel):
+    val = spi.xfer2([1, (8+channel) << 4, 0])
+    data = ((val[1] & 3) << 8) + val[2]
+    return data
+
 def create_connection(db_file):
     """ create a database connection to the SQLite database
         specified by db_file
@@ -36,29 +41,23 @@ def create_connection(db_file):
 
     return conn
 
-def create_project(conn, values):
-    sql = ''' INSERT INTO sensors (humidity,soil_moisture,temperature,light_intensity) values (?,?,?,?);'''
+def query(conn, values):
+    sql = ''' INSERT INTO sensors (humidity,soil_moisture,temperature,light_intensity,time) values (?,?,?,?,?);'''
     cur = conn.cursor()
     cur.execute(sql, values)
     conn.commit()
-    return cur.lastrowid
-
-def readChannel(channel):
-    val = spi.xfer2([1, (8+channel) << 4, 0])
-    data = ((val[1] & 3) << 8) + val[2]
-    return data
 
 def main():
     database = r"/home/pi/Wiwarium/sqlite3DB"
     light_intensity = round(sensor.lux, 1)
     soil_moisture = readChannel(0)
     humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
+    timestamp = time.strftime(('%Y-%m-%d %H:%M:%S'))
     # create a database connection
     conn = create_connection(database)
     with conn:
-        # create a new project
-        values = (humidity,soil_moisture,temperature,light_intensity,)
-        project_id = create_project(conn, values)
+        values = (humidity,soil_moisture,temperature,light_intensity,timestamp)
+        query(conn, values)
 
 if __name__ == '__main__':
     main()
