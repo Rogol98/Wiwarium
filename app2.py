@@ -73,7 +73,7 @@ def diagrams():
       'light_intensity' : get_value_from_DB('''SELECT light_intensity FROM sensors;'''),
       'time' : get_value_from_DB('''SELECT time FROM sensors;'''),
    }
-   return render_template('diagrams.html', **data)
+   return render_template('diagrams.html', data=data)
 
 
 def create_connection(db_file):
