@@ -97,7 +97,7 @@ def execute_query(conn, query):
     return values
 
 def get_value_from_DB(query):
-    conn = create_connection(database, query)
+    conn = create_connection(database)
     with conn:
         value = execute_query(conn, query)
     return value
