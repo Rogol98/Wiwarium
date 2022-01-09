@@ -52,6 +52,8 @@ def main():
     light_intensity = round(sensor.lux, 1)
     soil_moisture = readChannel(0)
     humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
+    humidity = round(humidity,1)
+    temperature = round(temperature,1)
     timestamp = time.strftime(('%Y-%m-%d %H:%M:%S'))
     # create a database connection
     conn = create_connection(database)
