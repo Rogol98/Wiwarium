@@ -39,18 +39,18 @@ def main():
 # The function below is executed when someone requests an URL with the pin number and action in it:
 
 
-@app.route("/<changePin>/<action>")
-def action(changePin, action):
+@app.route("/<pinNumber>/<action>")
+def action(pinNumber, action):
     # Convert the pin from the URL into an integer:
-    changePin = int(changePin)
+    pinNumber = int(pinNumber)
     # Get the device name for the pin being changed:
-    deviceName = pins[changePin]['name']
+    deviceName = pins[pinNumber]['name']
     # If the action part of the URL is "on," execute the code indented below:
     if action == "on":
         # Set the pin high:
-        GPIO.output(changePin, GPIO.HIGH)
+        GPIO.output(pinNumber, GPIO.HIGH)
     if action == "off":
-        GPIO.output(changePin, GPIO.LOW)
+        GPIO.output(pinNumber, GPIO.LOW)
 
     # For each pin, read the pin state and store it in the pins dictionary:
     for pin in pins:
