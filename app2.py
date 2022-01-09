@@ -91,7 +91,8 @@ def create_connection(db_file):
 
 def query(conn, query):
     cur = conn.cursor()
-    values = cur.execute(query)
+    cur.execute(query)
+    values = cur.fetchall()
     conn.commit()
     return values
 
