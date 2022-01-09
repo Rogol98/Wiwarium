@@ -108,7 +108,9 @@ def main():
    # humidity
    # timestamp = time.strftime(('%Y-%m-%d %H:%M:%S'))
     # create a database connection
-   print(get_temperature)
+   temperature = get_temperature() 
+   print(get_temperature())
+   print(temperature)
 
 
 if __name__ == "__main__":
