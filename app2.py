@@ -39,7 +39,7 @@ def main():
 # The function below is executed when someone requests an URL with the pin number and action in it:
 
 
-@app.route("/pinstate/<pinNumber>/<action>")
+@app.route("/<pinNumber>/<action>")
 def action(pinNumber, action):
     # Convert the pin from the URL into an integer:
     pinNumber = int(pinNumber)
