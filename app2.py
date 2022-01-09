@@ -13,7 +13,6 @@ app = Flask(__name__)
 
 database = r"/home/pi/Wiwarium/sqlite3DB"
 
-
 # Create a dictionary called pins to store the pin number, name, and pin state:
 pins = {
     17: {'name': 'GPIO 17', 'state': GPIO.LOW},
@@ -24,7 +23,6 @@ pins = {
 for pin in pins:
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, GPIO.HIGH)
-
 
 @app.route("/")
 def main():
