@@ -89,19 +89,18 @@ def create_connection(db_file):
     return conn
 
 
-def query(conn, query):
+def execute_query(conn, query):
     cur = conn.cursor()
     cur.execute(query)
     values = cur.fetchall()
     conn.commit()
     return values
 
-def get_temperature():
-    conn = create_connection(database)
+def get_value_from_DB(query):
+    conn = create_connection(database, query)
     with conn:
-        query_temperature = ''' SELECT temperature FROM sensors;'''
-        temperature = query(conn, query_temperature)
-    return temperature
+        value = execute_query(conn, query)
+    return value
 
 def main():
    #  light_intensity
@@ -109,10 +108,16 @@ def main():
    # humidity
    # timestamp = time.strftime(('%Y-%m-%d %H:%M:%S'))
     # create a database connection
-   temperature = get_temperature() 
-   print(get_temperature())
-   print(temperature)
-
+   query = ''' SELECT temperature FROM sensors;'''
+   print(get_value_from_DB(query))
+   query = ''' SELECT humidity FROM sensors;'''
+   print(get_value_from_DB(query))
+   query = ''' SELECT soil_moisture FROM sensors;'''
+   print(get_value_from_DB(query))
+   query = ''' SELECT light_intensity FROM sensors;'''
+   print(get_value_from_DB(query))
+   query = ''' SELECT time FROM sensors;'''
+   print(get_value_from_DB(query))
 
 if __name__ == "__main__":
     main()
