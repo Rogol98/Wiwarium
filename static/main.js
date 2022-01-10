@@ -1,9 +1,3 @@
-
-let ctx = document.getElementById("myChart").getContext("2d");
-
-let delayed
-
-
 dataFromDB = dataFromDB.replaceAll('&#39;', '\"')
 dataFromDB = dataFromDB.replaceAll(')', '')
 dataFromDB = dataFromDB.replaceAll('(', '')
@@ -13,10 +7,15 @@ console.log("TYPEOF: " + typeof dataFromDB)
 console.log(dataFromDB.temperature)
 console.log(dataFromDB.time)
 
+
+let ctx = document.getElementById("myChart1").getContext("2d");
+
+let delayed
+
 let labels = dataFromDB.time
 
 
-let data = {
+let dataTemperature = {
     labels,
     datasets: [{
         data: dataFromDB.temperature,
@@ -27,11 +26,9 @@ let data = {
     ],
 };
 
-//let data = dataFromDB.temperature
-
-let config = {
+let configTemperature = {
     type: "line",
-    data: data,
+    data: dataTemperature,
     options: {
         animation: {
             onComplete: () => {
@@ -60,6 +57,6 @@ let config = {
 
 };
 
-let myChart = new Chart(ctx, config)
+let myChart = new Chart(ctx, configTemperature)
 
 
