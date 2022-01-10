@@ -16,6 +16,7 @@ let labels = [
 ];
 
 console.log(dataFromDB['temperature'])
+console.log(dataFromDB)
 let data = {
     labels,
     datasets: [{
