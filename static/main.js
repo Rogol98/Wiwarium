@@ -1,5 +1,4 @@
 const ctx = document.getElementById("myChart").getContext("2d");
-console.log("here1")
 
 let delayed
 
@@ -15,16 +14,18 @@ const labels = [
     '2020',
 ];
 
-const data = {
-    labels,
-    datasets: [{
-        data: [214, 315, 248, 319, 198, 249, 297, 365, 277],
-        label: "CD Project stock",
-        borderColor: "green",
-        tension: 0.3,
-    },
-    ],
-};
+// const data = {
+//     labels,
+//     datasets: [{
+//         data: [214, 315, 248, 319, 198, 249, 297, 365, 277],
+//         label: "CD Project stock",
+//         borderColor: "green",
+//         tension: 0.3,
+//     },
+//     ],
+// };
+
+const data = dataFromDB.temperature
 
 const config = {
     type: "line",
@@ -56,6 +57,5 @@ const config = {
     },
 
 };
-console.log(dataFromDB)
-console.log("here")
+
 let myChart = new Chart(ctx, config)
