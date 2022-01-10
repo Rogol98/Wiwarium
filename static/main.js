@@ -11,8 +11,8 @@ dataFromDB = dataFromDB.replaceAll('(', '')
 dataFromDB = JSON.parse(dataFromDB)
 console.log(dataFromDB)
 console.log("TYPEOF: " + typeof dataFromDB)
-console.log(parsee.temperature)
-console.log(parsee['temperature'])
+console.log(dataFromDB.temperature)
+console.log(dataFromDB['temperature'])
 
 let data = {
     labels,
