@@ -1,8 +1,8 @@
-const ctx = document.getElementById("myChart").getContext("2d");
+let ctx = document.getElementById("myChart").getContext("2d");
 
 let delayed
 
-const labels = [
+let labels = [
     '2012',
     '2013',
     '2014',
@@ -14,7 +14,7 @@ const labels = [
     '2020',
 ];
 
-const data = {
+let data = {
     labels,
     datasets: [{
         data: [167, 267, 248, 319, 225, 189, 297, 267, 305],
@@ -25,9 +25,9 @@ const data = {
     ],
 };
 
-//const data = dataFromDB.temperature
+//let data = dataFromDB.temperature
 
-const config = {
+let config = {
     type: "line",
     data: data,
     options: {
