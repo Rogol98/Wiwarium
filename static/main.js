@@ -15,6 +15,7 @@ let labels = [
     '2020',
 ];
 
+console.log(dataFromDB)
 let data = {
     labels,
     datasets: [{
