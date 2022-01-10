@@ -1,4 +1,5 @@
 const ctx = document.getElementById("myChart").getContext("2d");
+console.log("here1")
 
 let delayed
 

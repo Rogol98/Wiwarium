@@ -112,14 +112,14 @@ def main():
     # create a database connection
    query = ''' SELECT temperature FROM sensors;'''
    print(get_value_from_DB(query))
-   query = ''' SELECT humidity FROM sensors;'''
-   print(get_value_from_DB(query))
-   query = ''' SELECT soil_moisture FROM sensors;'''
-   print(get_value_from_DB(query))
-   query = ''' SELECT light_intensity FROM sensors;'''
-   print(get_value_from_DB(query))
-   query = ''' SELECT time FROM sensors;'''
-   print(get_value_from_DB(query))
+   # query = ''' SELECT humidity FROM sensors;'''
+   # print(get_value_from_DB(query))
+   # query = ''' SELECT soil_moisture FROM sensors;'''
+   # print(get_value_from_DB(query))
+   # query = ''' SELECT light_intensity FROM sensors;'''
+   # print(get_value_from_DB(query))
+   # query = ''' SELECT time FROM sensors;'''
+   # print(get_value_from_DB(query))
 
 if __name__ == "__main__":
     main()
