@@ -55,5 +55,5 @@ const config = {
     },
 
 };
-
+console.log(dataFromDB)
 let myChart = new Chart(ctx, config)
