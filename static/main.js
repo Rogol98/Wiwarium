@@ -8,8 +8,8 @@ console.log(dataFromDB.temperature)
 console.log(dataFromDB.time)
 
 
-let ctx = document.getElementById("myChart1").getContext("2d");
-let ctx = document.getElementById("myChart2").getContext("2d");
+let ctx1 = document.getElementById("myChart1").getContext("2d");
+let ctx2 = document.getElementById("myChart2").getContext("2d");
 
 let delayed
 
@@ -58,6 +58,6 @@ let configTemperature = {
 
 };
 
-let myChart = new Chart(ctx, configTemperature)
+let myChart = new Chart(ctx1, configTemperature)
 
 
