@@ -63,3 +63,7 @@ let config = {
 };
 
 let myChart = new Chart(ctx, config)
+
+if(window.bar != undefined) 
+window.bar.destroy(); 
+window.bar = new Chart(ctx, config)
