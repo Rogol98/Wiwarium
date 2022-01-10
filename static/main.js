@@ -56,4 +56,4 @@ const config = {
 
 };
 
-const myChart = new Chart(ctx, config)
+//const myChart = new Chart(ctx, config)
