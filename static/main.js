@@ -9,6 +9,7 @@ console.log(dataFromDB.time)
 
 
 let ctx = document.getElementById("myChart1").getContext("2d");
+let ctx = document.getElementById("myChart2").getContext("2d");
 
 let delayed
 
