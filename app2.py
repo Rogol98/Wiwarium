@@ -95,6 +95,7 @@ def execute_query(conn, query):
     cur = conn.cursor()
     cur.execute(query)
     values = cur.fetchall()
+    values = list(zip(*values))
     conn.commit()
     return values
 
