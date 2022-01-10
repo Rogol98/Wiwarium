@@ -14,9 +14,11 @@ let labels = [
     '2019',
     '2020',
 ];
-// parsee = JSON.parse(dataFromDB)
+parsee = dataFromDB.replace('&#39;', '\'')
+console.log(parsee)
+parsee = JSON.parse(dataFromDB)
 console.log(dataFromDB)
-// console.log("TYPEOF parsee: " + typeof parsee)
+console.log("TYPEOF parsee: " + typeof parsee)
 console.log("TYPEOF: " + typeof dataFromDB)
 console.log(dataFromDB[1])
 console.log(dataFromDB.temperature)
