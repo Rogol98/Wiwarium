@@ -14,7 +14,7 @@ let labels = [
     '2019',
     '2020',
 ];
-parsee = dataFromDB.replace('&#39;', '\'')
+parsee = dataFromDB.replaceAll('&#39;', '\'')
 console.log(parsee)
 parsee = JSON.parse(dataFromDB)
 console.log(dataFromDB)
