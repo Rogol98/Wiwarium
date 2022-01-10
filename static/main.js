@@ -1,3 +1,7 @@
+if (myChart) {
+    myChart.destroy();
+  }
+
 let ctx = document.getElementById("myChart").getContext("2d");
 
 let delayed
