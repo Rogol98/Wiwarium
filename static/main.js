@@ -16,7 +16,7 @@ let labels = [
 ];
 parsee = dataFromDB.replaceAll('&#39;', '\'')
 console.log(parsee)
-parsee = JSON.parse(dataFromDB)
+parsee = JSON.parse(parsee)
 console.log(dataFromDB)
 console.log("TYPEOF parsee: " + typeof parsee)
 console.log("TYPEOF: " + typeof dataFromDB)
