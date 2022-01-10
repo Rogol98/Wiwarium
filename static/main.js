@@ -19,7 +19,7 @@ console.log(dataFromDB)
 let data = {
     labels,
     datasets: [{
-        data: /*[167, 267, 248, 319, 225, 189, 297, 267, 305]*/dataFromDB,
+        data: /*[167, 267, 248, 319, 225, 189, 297, 267, 305]*/dataFromDB.temperature,
         label: "temperature",
         borderColor: "green",
         tension: 0.3,
