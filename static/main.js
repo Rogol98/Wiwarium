@@ -14,16 +14,7 @@ const labels = [
     '2020',
 ];
 
-// const data = {
-//     labels,
-//     datasets: [{
-//         data: [214, 315, 248, 319, 198, 249, 297, 365, 277],
-//         label: "CD Project stock",
-//         borderColor: "green",
-//         tension: 0.3,
-//     },
-//     ],
-// };
+
 
 const data = dataFromDB.temperature
 
