@@ -6,10 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPi Web Server</title>
     <link rel="stylesheet" href="/static/style.css">
-   
+
 </head>
 
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"
+        integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+            var myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+        </script>
     <h1>HSAHAHHAHAHAAH</h1>
     <h1>siemankooo</h1>
     <h1>{{ data.temperature }}</h1>
@@ -23,15 +32,7 @@
     </script>
     <script type="text/javascript" src="../static/main.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"
-        integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
 
-            var myChart = new Chart(
-                document.getElementById('myChart'),
-                config
-            );
-        </script>
     <script type="module" src="../static/main.js"></script>
 
     <div class="navbar">
