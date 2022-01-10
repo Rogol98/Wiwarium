@@ -3,24 +3,13 @@ let ctx = document.getElementById("myChart").getContext("2d");
 
 let delayed
 
-let labels = [
-    '2012',
-    '2013',
-    '2014',
-    '2015',
-    '2016',
-    '2017',
-    '2018',
-    '2019',
-    '2020',
-];
-parsee = dataFromDB.replaceAll('&#39;', '\"')
-parsee = parsee.replaceAll(')', '')
-parsee = parsee.replaceAll('(', '')
-console.log(parsee)
-console.log("TYPEOF parsee: " + typeof parsee)
-parsee = JSON.parse(parsee)
-//console.log(dataFromDB)
+let labels = dataFromDB.time
+
+dataFromDB = dataFromDB.replaceAll('&#39;', '\"')
+dataFromDB = dataFromDB.replaceAll(')', '')
+dataFromDB = dataFromDB.replaceAll('(', '')
+dataFromDB = JSON.parse(dataFromDB)
+console.log(dataFromDB)
 console.log("TYPEOF: " + typeof dataFromDB)
 console.log(parsee.temperature)
 console.log(parsee['temperature'])
@@ -28,7 +17,7 @@ console.log(parsee['temperature'])
 let data = {
     labels,
     datasets: [{
-        data: /*[167, 267, 248, 319, 225, 189, 297, 267, 305]*/parsee['temperature'],
+        data: dataFromDB['temperature'],
         label: "temperature",
         borderColor: "green",
         tension: 0.3,
