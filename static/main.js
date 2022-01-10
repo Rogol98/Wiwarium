@@ -15,7 +15,7 @@ let labels = [
     '2020',
 ];
 
-console.log(dataFromDB['temperature'])
+console.log(dataFromDB['&#39;temperature&#39;'])
 console.log(dataFromDB)
 let data = {
     labels,
