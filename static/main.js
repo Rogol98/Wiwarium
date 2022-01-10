@@ -12,12 +12,12 @@ dataFromDB = JSON.parse(dataFromDB)
 console.log(dataFromDB)
 console.log("TYPEOF: " + typeof dataFromDB)
 console.log(dataFromDB.temperature)
-console.log(dataFromDB['temperature'])
+console.log(dataFromDB.time)
 
 let data = {
     labels,
     datasets: [{
-        data: dataFromDB['temperature'],
+        data: dataFromDB.temperature,
         label: "temperature",
         borderColor: "green",
         tension: 0.3,
