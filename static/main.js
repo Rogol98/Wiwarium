@@ -15,18 +15,18 @@ let labels = [
     '2020',
 ];
 
-// let data = {
-//     labels,
-//     datasets: [{
-//         data: [167, 267, 248, 319, 225, 189, 297, 267, 305],
-//         label: "Change please",
-//         borderColor: "green",
-//         tension: 0.3,
-//     },
-//     ],
-// };
+let data = {
+    labels,
+    datasets: [{
+        data: /*[167, 267, 248, 319, 225, 189, 297, 267, 305]*/dataFromDB,
+        label: "temperature",
+        borderColor: "green",
+        tension: 0.3,
+    },
+    ],
+};
 
-let data = dataFromDB.temperature
+//let data = dataFromDB.temperature
 
 let config = {
     type: "line",
