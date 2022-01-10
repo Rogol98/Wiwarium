@@ -1,6 +1,11 @@
 if (myChart) {
     myChart.destroy();
-  }
+}
+if (window.MyChart != undefined) {
+    window.MyChart.destroy();
+}
+if (window.bar != undefined)
+    window.bar.destroy();
 
 let ctx = document.getElementById("myChart").getContext("2d");
 
@@ -64,6 +69,6 @@ let config = {
 
 let myChart = new Chart(ctx, config)
 
-if(window.bar != undefined) 
-window.bar.destroy(); 
+
 window.bar = new Chart(ctx, config)
+window.MyChart = new Chart(ctx, config)
