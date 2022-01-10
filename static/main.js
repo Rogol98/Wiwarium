@@ -15,11 +15,11 @@ let labels = [
     '2020',
 ];
 
-console.log(dataFromDB[temperature])
+console.log(dataFromDB['temperature'])
 let data = {
     labels,
     datasets: [{
-        data: /*[167, 267, 248, 319, 225, 189, 297, 267, 305]*/dataFromDB[temperature],
+        data: /*[167, 267, 248, 319, 225, 189, 297, 267, 305]*/dataFromDB['temperature'],
         label: "temperature",
         borderColor: "green",
         tension: 0.3,
