@@ -16,6 +16,7 @@ let labels = [
 ];
 
 console.log(dataFromDB)
+console.log("TYPEOF: " + typeof dataFromDB)
 console.log(dataFromDB[1])
 console.log(dataFromDB.temperature)
 console.log(dataFromDB['temperature'])
