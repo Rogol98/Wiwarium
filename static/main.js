@@ -3,7 +3,6 @@ let ctx = document.getElementById("myChart").getContext("2d");
 
 let delayed
 
-let labels = dataFromDB.time
 
 dataFromDB = dataFromDB.replaceAll('&#39;', '\"')
 dataFromDB = dataFromDB.replaceAll(')', '')
@@ -13,6 +12,9 @@ console.log(dataFromDB)
 console.log("TYPEOF: " + typeof dataFromDB)
 console.log(dataFromDB.temperature)
 console.log(dataFromDB.time)
+
+let labels = dataFromDB.time
+
 
 let data = {
     labels,
