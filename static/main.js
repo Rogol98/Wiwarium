@@ -58,6 +58,6 @@ let configTemperature = {
 
 };
 
-let myChart = new Chart(ctx1, configTemperature)
+let myChart1 = new Chart(ctx1, configTemperature)
 
 
