@@ -28,3 +28,9 @@
     background: #ddd;
     color: black;
 }
+
+.chart{
+    position: relative;
+    width: 50vw;
+    height: 50vh;
+}
