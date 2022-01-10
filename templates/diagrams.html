@@ -1,23 +1,18 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPi Web Server</title>
+    <title>Document</title>
     <link rel="stylesheet" href="/static/style.css">
-
 </head>
 
 <body>
-
-    <h1>HSAHAHHAHAHAAH</h1>
-    <h1>siemankooo</h1>
-    <h1>{{ data.temperature }}</h1>
-
-    <div class="chart">
-        <canvas id="myChart"></canvas>
-    </div>
+<div class="chart">
+    <canvas id="myChart"></canvas>
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"
         integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg=="
@@ -28,18 +23,7 @@
                 config
             );
         </script>
-    <script type="module" src="../static/main.js"></script>
-
-    <!-- <script type="text/javascript">
-        var dataFromDB = '{{ data }}'
-    </script>
-    <script type="text/javascript" src="../static/main.js"></script> -->
-
-    <div class="navbar">
-        <a href="/">Strona startowa</a>
-        <a href="/17/off">Panel sterowania</a>
-        <a href="/diagrams">Warunki w wiwarium</a>
-    </div>
+    <script type="module" src="/static/main.js"></script>
 </body>
 
 </html>
