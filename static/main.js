@@ -16,9 +16,9 @@ let labels = [
 ];
 parsee = dataFromDB.replaceAll('&#39;', '\'')
 console.log(parsee)
+console.log("TYPEOF parsee: " + typeof parsee)
 parsee = JSON.parse(parsee)
 console.log(dataFromDB)
-console.log("TYPEOF parsee: " + typeof parsee)
 console.log("TYPEOF: " + typeof dataFromDB)
 console.log(dataFromDB[1])
 console.log(dataFromDB.temperature)
