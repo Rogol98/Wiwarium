@@ -24,6 +24,7 @@ parsee = JSON.parse(parsee)
 console.log("TYPEOF: " + typeof dataFromDB)
 console.log(parsee.temperature)
 console.log(parsee['temperature'])
+
 let data = {
     labels,
     datasets: [{
@@ -59,7 +60,7 @@ let config = {
             y: {
                 ticks: {
                     callback: function (value) {
-                        return value + "°C";
+                        return Math.round(value * 10) / 10  + "°C";
                     },
                 },
             },
