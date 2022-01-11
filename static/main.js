@@ -102,4 +102,36 @@ let configHumidity = {
 let myChart1 = new Chart(ctx1, configTemperature)
 let myChart2 = new Chart(ctx2, configHumidity)
 
+addData(myChart1,"20226.01.12 9:34:49",30.4)
+addData(myChart1,"20226.01.13 9:34:49",30.4)
+addData(myChart1,"20226.01.14 9:34:49",30.4)
+addData(myChart2,"20226.01.15 9:34:49",51.4)
+addData(myChart2,"20226.01.16 9:34:49",59.4)
+addData(myChart2,"20226.01.17 9:34:49",71.4)
+// removeData(myChart2)
+// removeData(myChart2)
+// removeData(myChart2)
 
+
+// function showLastDay(){
+//     for (i = ; i < 5; i++) {
+        
+//       }
+//     chart.data.labels.pop()
+// }
+
+function addData(chart, label, data) {
+    chart.data.labels.push(label);
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(data);
+    });
+    chart.update();
+}
+
+function removeData(chart) {
+    chart.data.labels.pop();
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.pop();
+    });
+    chart.update();
+}
