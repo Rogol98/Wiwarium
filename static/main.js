@@ -104,37 +104,9 @@ let myChart1 = new Chart(ctx1, configTemperature)
 let myChart2 = new Chart(ctx2, configHumidity)
 
 
-function getLastDayLabels() {
-    let timeFromDB = dataFromDB.time
-    let today = new Date();
-    let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1, today.getHours(), today.getMinutes(), today.getSeconds());
-    let lastDayLabels = []
-    for (i = 0; i < timeFromDB.length; i++) {
-        let date = timeFromDB[i].split(' ')[0]
-        let dates = date.split('-')
-        let time = timeFromDB[i].split(' ')[1]
-        let times = time.split(':')
-
-        let year = dates[0]
-        let month = dates[1] - 1
-        let day = dates[2]
-
-        let hour = times[0]
-        let minutes = times[1]
-        let seconds = times[2]
-
-        let dateFromChart = new Date(year, month, day, hour, minutes, seconds)
-        if (dateFromChart.getTime() > aDayAgo.getTime()) {
-            dateToPush = year + '-' + month + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds
-            lastDayLabels.push(dateToPush)
-        }
-    }
-    return lastDayLabels
-}
-
 function getLabelsByTime(fromWhen) {
     let timeFromDB = dataFromDB.time
-    let lastDayLabels = []
+    let labels = []
     for (i = 0; i < timeFromDB.length; i++) {
         let date = timeFromDB[i].split(' ')[0]
         let dates = date.split('-')
@@ -152,36 +124,67 @@ function getLabelsByTime(fromWhen) {
         let dateFromChart = new Date(year, month, day, hour, minutes, seconds)
         if (dateFromChart.getTime() > fromWhen.getTime()) {
             dateToPush = year + '-' + (month + 1) + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds
-            lastDayLabels.push(dateToPush)
+            labels.push(dateToPush)
         }
     }
-    return lastDayLabels
+    return labels
 }
 
-let today = new Date();
-let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1, today.getHours(), today.getMinutes(), today.getSeconds());
-
-console.log(getLabelsByTime(aDayAgo))
-
-//myChart1.data.labels = getLastDayLabels()
-
-//myChart1.data.datasets[0].data = [32.5, 33.1, 34.7]
-
-myChart1.update()
-
-
-function addData(chart, label, data) {
-    chart.data.labels.push(label);
-    chart.data.datasets.forEach((dataset) => {
-        dataset.data.push(data);
-    });
-    chart.update();
+function getLastDayUpdate() {
+    let today = new Date();
+    let dateADayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1, today.getHours(), today.getMinutes(), today.getSeconds());
+    let labelsADayAgo = getLabelsByTime(dateADayAgo)
+    let temperatureADayAgo = dataFromDB.temperature.slice(labelsADayAgo.length - 1, labels.length)
+    let humidityADayAgo = dataFromDB.humidity.slice(labelsADayAgo.length - 1, labels.length)
+    let soilMoistureADayAgo
+    let luminosityADayAgo
+    myChart1.data.labels = labelsADayAgo
+    myChart1.data.datasets[0].data = temperatureADayAgo
+    myChart1.update()
+    myChart2.data.labels = labelsADayAgo
+    myChart2.data.datasets[0].data = temperatureADayAgo
+    myChart2.update()
+    
 }
 
-function removeData(chart) {
-    chart.data.labels.pop();
-    chart.data.datasets.forEach((dataset) => {
-        dataset.data.pop();
-    });
-    chart.update();
+function getLast3DaysLabels() {
+    let today = new Date();
+    let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 3, today.getHours(), today.getMinutes(), today.getSeconds());
+    return getLabelsByTime(aDayAgo)
 }
+
+function getLastWeekLabels() {
+    let today = new Date();
+    let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7, today.getHours(), today.getMinutes(), today.getSeconds());
+    let temperatureFromWeek = a
+
+    return getLabelsByTime(aDayAgo)
+}
+
+function getLastMonthLabels() {
+    let today = new Date();
+    let aDayAgo = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds());
+    return getLabelsByTime(aDayAgo)
+}
+
+function getAllLabels() {
+    return dataFromDB.time
+}
+
+
+
+// function addData(chart, label, data) {
+//     chart.data.labels.push(label);
+//     chart.data.datasets.forEach((dataset) => {
+//         dataset.data.push(data);
+//     });
+//     chart.update();
+// }
+
+// function removeData(chart) {
+//     chart.data.labels.pop();
+//     chart.data.datasets.forEach((dataset) => {
+//         dataset.data.pop();
+//     });
+//     chart.update();
+// }
