@@ -126,6 +126,7 @@ function showLastDay() {
     let today = new Date();
 
     let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate - 1, today.getHours, today.getMinutes, today.getSeconds);
+    console.log(today.getFullYear(), today.getMonth(), today.getDate - 1, today.getHours, today.getMinutes, today.getSeconds)
     console.log(aDayAgo)
     console.log(aDayAgo.toString())
 
@@ -139,8 +140,6 @@ function showLastDay() {
         //.split('-')[2]
     }
 }
-
-console.log(showLastDay())
 
 myChart1.data.labels.pop()
 myChart1.data.labels.pop()
