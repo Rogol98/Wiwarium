@@ -38,6 +38,28 @@ let dataHumidity = {
     ],
 };
 
+let dataSoilMoisture = {
+    labels,
+    datasets: [{
+        data: dataFromDB.soil_moisture,
+        label: "soil moisture",
+        borderColor: "brown",
+        tension: 0.3,
+    },
+    ],
+};
+
+let dataLuminosity = {
+    labels,
+    datasets: [{
+        data: dataFromDB.light_intensity,
+        label: "luminosity",
+        borderColor: "yellow",
+        tension: 0.3,
+    },
+    ],
+};
+
 let configTemperature = {
     type: "line",
     data: dataTemperature,
