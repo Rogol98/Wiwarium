@@ -103,18 +103,8 @@ let configHumidity = {
 let myChart1 = new Chart(ctx1, configTemperature)
 let myChart2 = new Chart(ctx2, configHumidity)
 
-// addData(myChart1, "2026.01.12 9:34:49", 30.4)
-// addData(myChart1, "2026.01.13 9:34:49", 30.4)
-// addData(myChart1, "2026.01.14 9:34:49", 30.4)
-// addData(myChart2, "2026.01.15 9:34:49", 51.4)
-// addData(myChart2, "2026.01.16 9:34:49", 59.4)
-// addData(myChart2, "2026.01.17 9:34:49", 71.4)
-// removeData(myChart2)
-// removeData(myChart2)
-// removeData(myChart2)
 
-
-function showLastDay() {
+function getLastDayLabels() {
     let timeFromDB = dataFromDB.time
     let today = new Date();
     let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1, today.getHours(), today.getMinutes(), today.getSeconds());
@@ -142,12 +132,12 @@ function showLastDay() {
     return lastDayLabels
 }
 
-console.log(showLastDay())
+console.log(getLastDayLabels())
 
-myChart1.data.labels.pop()
-myChart1.data.labels.pop()
+
+
+myChart1.data.labels = getLastDayLabels()
 myChart1.update()
-myChart2.update()
 
 
 function addData(chart, label, data) {
