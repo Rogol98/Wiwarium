@@ -120,6 +120,7 @@ function showLastDay() {
     let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1, today.getHours(), today.getMinutes(), today.getSeconds());
     let lastDayLabels = []
     for (i = 0; i < timeFromDB.length; i++) {
+        console.log("iiii: " + i)
         let date = timeFromDB[i].split(' ')[0]
         let dates = date.split('-')
         let time = timeFromDB[i].split(' ')[1]
