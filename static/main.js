@@ -130,6 +130,8 @@ function getLabelsByTime(fromWhen) {
     return labels
 }
 
+getLastDayUpdate()
+
 function getLastDayUpdate() {
     let today = new Date();
     let dateADayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1, today.getHours(), today.getMinutes(), today.getSeconds());
