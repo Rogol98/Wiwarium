@@ -59,7 +59,7 @@ let configTemperature = {
             y: {
                 ticks: {
                     callback: function (value) {
-                        return Math.round(value * 10) / 10  + "°C";
+                        return Math.round(value * 10) / 10 + "°C";
                     },
                 },
             },
@@ -90,7 +90,7 @@ let configHumidity = {
             y: {
                 ticks: {
                     callback: function (value) {
-                        return Math.round(value * 10) / 10  + "%";
+                        return Math.round(value * 10) / 10 + "%";
                     },
                 },
             },
@@ -102,23 +102,27 @@ let configHumidity = {
 let myChart1 = new Chart(ctx1, configTemperature)
 let myChart2 = new Chart(ctx2, configHumidity)
 
-addData(myChart1,"20226.01.12 9:34:49",30.4)
-addData(myChart1,"20226.01.13 9:34:49",30.4)
-addData(myChart1,"20226.01.14 9:34:49",30.4)
-addData(myChart2,"20226.01.15 9:34:49",51.4)
-addData(myChart2,"20226.01.16 9:34:49",59.4)
-addData(myChart2,"20226.01.17 9:34:49",71.4)
+addData(myChart1, "2026.01.12 9:34:49", 30.4)
+addData(myChart1, "2026.01.13 9:34:49", 30.4)
+addData(myChart1, "2026.01.14 9:34:49", 30.4)
+addData(myChart2, "2026.01.15 9:34:49", 51.4)
+addData(myChart2, "2026.01.16 9:34:49", 59.4)
+addData(myChart2, "2026.01.17 9:34:49", 71.4)
 // removeData(myChart2)
 // removeData(myChart2)
 // removeData(myChart2)
+showLastDay()
 
+function showLastDay() {
+    //for (i = ; i < 5; i++) {
+        let today = new Date();
+        const words = today.split(' ');
+        console.log(words)
+        console.log(today)
 
-// function showLastDay(){
-//     for (i = ; i < 5; i++) {
-        
-//       }
-//     chart.data.labels.pop()
-// }
+   // }
+   // chart.data.labels.pop()
+}
 
 function addData(chart, label, data) {
     chart.data.labels.push(label);
