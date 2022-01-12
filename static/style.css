@@ -1,7 +1,5 @@
 * {
 	box-sizing: border-box;
-	margin: 50px;
-	padding: 50px;
 }
 
 .navbar {
@@ -35,6 +33,23 @@
 	height: 50vh;
 }
 
+#parent {
+	text-align: justify;
+	background-color: red;
+  }
+  #parent:after {
+	content: '';
+	display: inline-block;
+	width: 100%;
+  }
+  #parent .chart {
+	display: inline-block;
+	height: 100px;
+	width: 16.5%;
+	background-color: green;
+	margin-right: 15px;
+	margin-bottom: 10px;
+  }
 
 .box {
 	position: absolute;
