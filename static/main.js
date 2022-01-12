@@ -111,7 +111,11 @@ addData(myChart2, "2026.01.17 9:34:49", 71.4)
 // removeData(myChart2)
 // removeData(myChart2)
 showLastDay()
-
+function nextweek(){
+    var today = new Date();
+    var nextweek = new Date(today.getFullYear(), today.getMonth(), today.getDate()+21);
+    return nextweek;
+}
 function showLastDay() {
     //for (i = ; i < 5; i++) {
         let today = new Date();
@@ -120,6 +124,7 @@ function showLastDay() {
         console.log("TYPEOF: " + typeof today)
         //console.log(words)
         console.log(today)
+        console.log(nextweek)
 
    // }
    // chart.data.labels.pop()
