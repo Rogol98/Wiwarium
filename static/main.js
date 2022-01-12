@@ -110,30 +110,30 @@ let myChart2 = new Chart(ctx2, configHumidity)
 // removeData(myChart2)
 // removeData(myChart2)
 // removeData(myChart2)
-function nextweek(){
-    console.log("TYPE: "+ typeof dataFromDB.time)
+function nextweek() {
+    console.log("TYPE: " + typeof dataFromDB.time)
     var today = new Date();
-    var nextweek = new Date(today.getFullYear(), today.getMonth(), today.getDate()+21);
+    var nextweek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 21);
     return nextweek;
 }
 function showLastDay() {
     //for (i = ; i < 5; i++) {
-        let yesterday = new Date();
-        //let words = today.split(' ');
-        //console.log("TYPEOF: " + typeof words)
+    let yesterday = new Date();
+    //let words = today.split(' ');
+    //console.log("TYPEOF: " + typeof words)
 
 
-    }
+}
+let today = dataFromDB.time
+console.log("TYPEOF today: " + typeof today)
+//console.log(words)
+console.log(today.isArray())
+console.log(nextweek())
 
-    console.log("TYPEOF today: " + typeof today)
-    //console.log(words)
-    console.log(today.isArray())
-    console.log(nextweek())
-
-   myChart1.data.labels.pop()
-   myChart1.data.labels.pop()
-   myChart1.update()
-   myChart2.update()
+myChart1.data.labels.pop()
+myChart1.data.labels.pop()
+myChart1.update()
+myChart2.update()
 
 
 function addData(chart, label, data) {
