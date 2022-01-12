@@ -125,7 +125,7 @@ function showLastDay() {
     let dates = dataFromDB.time
     let today = new Date();
 
-    let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate - 1, today.getHours, today.getMinutes, today.getSeconds);
+    let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1, today.getHours(), today.getMinutes(), today.getSeconds());
     console.log(today.getFullYear(), today.getMonth(), today.getDate - 1, today.getHours, today.getMinutes, today.getSeconds)
     console.log(aDayAgo)
     console.log(aDayAgo.toString())
