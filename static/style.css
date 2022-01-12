@@ -35,62 +35,53 @@
     height: 50vh;
 }
 
-.custom-select {
-	position: relative;
-	font-family: Arial;
-	/* margin: 100px; */
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #004882;
   }
   
-  .custom-select select {
-	display: none; /*hide original SELECT element: */
-  }
-  
-  .select-selected {
-	background-color: DodgerBlue;
-  }
-  
-  /* Style the arrow inside the select element: */
-  .select-selected:after {
+  .box {
 	position: absolute;
-	content: "";
-	top: 14px;
-	right: 10px;
-	width: 0;
-	height: 0;
-	border: 6px solid transparent;
-	border-color: #fff transparent transparent transparent;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
   }
   
-  /* Point the arrow upwards when the select box is open (active): */
-  .select-selected.select-arrow-active:after {
-	border-color: transparent transparent #fff transparent;
-	top: 7px;
+  .box select {
+	background-color: #0563af;
+	color: white;
+	padding: 12px;
+	width: 250px;
+	border: none;
+	font-size: 20px;
+	box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+	-webkit-appearance: button;
+	appearance: button;
+	outline: none;
   }
   
-  /* style the items (options), including the selected item: */
-  .select-items div,.select-selected {
-	color: #ffffff;
-	padding: 8px 16px;
-	border: 1px solid transparent;
-	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-	cursor: pointer;
-  }
-  
-  /* Style items (options): */
-  .select-items {
+  .box::before {
+	content: "\f13a";
+	font-family: FontAwesome;
 	position: absolute;
-	background-color: DodgerBlue;
-	top: 100%;
-	left: 0;
+	top: 0;
 	right: 0;
-	z-index: 99;
+	width: 20%;
+	height: 100%;
+	text-align: center;
+	font-size: 28px;
+	line-height: 45px;
+	color: rgba(255, 255, 255, 0.5);
+	background-color: rgba(255, 255, 255, 0.1);
+	pointer-events: none;
   }
   
-  /* Hide the items when the select box is closed: */
-  .select-hide {
-	display: none;
+  .box:hover::before {
+	color: rgba(255, 255, 255, 0.6);
+	background-color: rgba(255, 255, 255, 0.2);
   }
   
-  .select-items div:hover, .same-as-selected {
-	background-color: rgba(0, 0, 0, 0.1);
+  .box select option {
+	padding: 30px;
   }
