@@ -127,7 +127,7 @@ function showLastDay() {
 let today = dataFromDB.time
 console.log("TYPEOF today: " + typeof today)
 console.log(today)
-console.log(isArray(today))
+console.log(Array.isArray(today))
 console.log(nextweek())
 
 myChart1.data.labels.pop()
