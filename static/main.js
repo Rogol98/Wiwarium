@@ -110,7 +110,6 @@ let myChart2 = new Chart(ctx2, configHumidity)
 // removeData(myChart2)
 // removeData(myChart2)
 // removeData(myChart2)
-showLastDay()
 function nextweek(){
     var today = new Date();
     var nextweek = new Date(today.getFullYear(), today.getMonth(), today.getDate()+21);
