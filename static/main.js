@@ -115,10 +115,10 @@ showLastDay()
 function showLastDay() {
     //for (i = ; i < 5; i++) {
         let today = new Date();
-        let words = today.split(' ');
-        console.log("TYPEOF: " + typeof words)
+        //let words = today.split(' ');
+        //console.log("TYPEOF: " + typeof words)
         console.log("TYPEOF: " + typeof today)
-        console.log(words)
+        //console.log(words)
         console.log(today)
 
    // }
