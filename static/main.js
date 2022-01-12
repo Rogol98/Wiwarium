@@ -121,12 +121,15 @@ function showLastDay() {
         let yesterday = new Date();
         //let words = today.split(' ');
         //console.log("TYPEOF: " + typeof words)
-        console.log("TYPEOF: " + typeof today)
-        //console.log(words)
-        console.log(today.isArray())
-        console.log(nextweek())
+
 
     }
+
+    console.log("TYPEOF today: " + typeof today)
+    //console.log(words)
+    console.log(today.isArray())
+    console.log(nextweek())
+
    myChart1.data.labels.pop()
    myChart1.data.labels.pop()
    myChart1.update()
