@@ -134,7 +134,7 @@ console.log(dates)
         let seconds = times[2]
 console.log(month)
         let dateFromChart = new Date(year, month, day, hour, minutes, seconds)
-        console.log("FROM CHART: " + dateFromChart.toString())
+        console.log("FROM CHART: " + dateFromChart.getMonth())
         console.log("A DAY AGO: " + aDayAgo.toString())
         if (dateFromChart.getTime() > aDayAgo.getTime()) {
             dateToPush = year + '-' + month + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds
