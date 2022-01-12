@@ -1,8 +1,8 @@
-console.log(dataFromDB)
-
 dataFromDB = dataFromDB.replaceAll('&#39;', '\"')
 dataFromDB = dataFromDB.replaceAll(')', '')
 dataFromDB = dataFromDB.replaceAll('(', '')
+console.log(dataFromDB)
+
 dataFromDB = JSON.parse(dataFromDB)
 console.log(dataFromDB)
 console.log("TYPEOF: " + typeof dataFromDB)
