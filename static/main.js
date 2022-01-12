@@ -110,38 +110,41 @@ let myChart2 = new Chart(ctx2, configHumidity)
 // removeData(myChart2)
 // removeData(myChart2)
 // removeData(myChart2)
-function nextweek() {
-    console.log("TYPE: " + typeof dataFromDB.time)
-    var today = new Date();
-    var nextweek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 21);
-    return nextweek;
-}
 
-// function isOlderThan(){
-
-// }
 
 function showLastDay() {
-    let dates = dataFromDB.time
+    let timeFromDB = dataFromDB.time
     let today = new Date();
-
     let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1, today.getHours(), today.getMinutes(), today.getSeconds());
-    console.log(today.getFullYear(), today.getMonth(), today.getDate - 1, today.getHours, today.getMinutes, today.getSeconds)
-    console.log(aDayAgo)
+    let lastDayLabels = []
     console.log(aDayAgo.toString())
 
-    for (i = 0; i < dates.length; i++) {
-        day = dates[i].split(' ')[0]
-        time = dates[i].split(' ')[1]
-        // if () {
+    for (i = 0; i < timeFromDB.length; i++) {
+        let date = timeFromDB[i].split(' ')[0]
+        let dates = date.split('-')
+        let time = timeFromDB[i].split(' ')[1]
+        let times = time.split(':')
 
-        // }
+        let year = dates[0]
+        let month = dates[1]
+        let day = dates[2]
 
-        //.split('-')[2]
+        let hour = times[0]
+        let minutes = times[1]
+        let seconds = times[2]
+
+        let dateFromChart = new Date(year, month, day, hour, minutes, seconds)
+
+        if (dateFromChart.getTime() > aDayAgo.getTime()) {
+            dateToPush = year + '-' + month + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds
+            lastDayLabels.push(dateToPush)
+        }
+
+        return lastDayLabels
     }
 }
 
-showLastDay()
+console.log(showLastDay())
 
 myChart1.data.labels.pop()
 myChart1.data.labels.pop()
