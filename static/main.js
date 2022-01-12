@@ -134,8 +134,8 @@ function showLastDay() {
         let seconds = times[2]
 
         let dateFromChart = new Date(year, month, day, hour, minutes, seconds)
-        console.log(dateFromChart.toDateString())
-        console.log(aDayAgo.toDateString())
+        console.log("FROM CHART: " + dateFromChart.toString())
+        console.log("A DAY AGO: " + aDayAgo.toString())
         if (dateFromChart.getTime() > aDayAgo.getTime()) {
             dateToPush = year + '-' + month + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds
             lastDayLabels.push(dateToPush)
