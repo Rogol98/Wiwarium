@@ -140,9 +140,8 @@ function showLastDay() {
             dateToPush = year + '-' + month + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds
             lastDayLabels.push(dateToPush)
         }
-
-        return lastDayLabels
     }
+    return lastDayLabels
 }
 
 console.log(showLastDay())
