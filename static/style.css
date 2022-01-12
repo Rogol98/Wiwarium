@@ -5,46 +5,45 @@
 }
 
 .navbar {
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    left: 0;
+	overflow: hidden;
+	background-color: #333;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	left: 0;
 }
 
 .navbar a {
-    font-family: Arial, Helvetica, sans-serif;
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+	font-family: Arial, Helvetica, sans-serif;
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
 }
 
 .navbar a:hover {
-    background: #ddd;
-    color: black;
+	background: #ddd;
+	color: black;
 }
 
-.chart{
-    position: relative;
-    width: 50vw;
-    height: 50vh;
+.chart {
+	position: relative;
+	width: 50vw;
+	height: 50vh;
 }
 
-  
-  .box {
+
+.box {
 	position: absolute;
-	top: 50%;
-	left: 50%;
 	transform: translate(-50%, -50%);
+	margin-left: 200px;
 	padding: 100px;
-  }
-  
-  .box select {
+}
+
+.box select {
 	background-color: #0563af;
 	color: white;
 	padding: 12px;
@@ -55,9 +54,9 @@
 	-webkit-appearance: button;
 	appearance: button;
 	outline: none;
-  }
-  
-  .box::before {
+}
+
+.box::before {
 	content: "\f13a";
 	font-family: FontAwesome;
 	position: absolute;
@@ -71,13 +70,13 @@
 	color: rgba(255, 255, 255, 0.5);
 	background-color: rgba(255, 255, 255, 0.1);
 	pointer-events: none;
-  }
-  
-  .box:hover::before {
+}
+
+.box:hover::before {
 	color: rgba(255, 255, 255, 0.6);
 	background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  .box select option {
+}
+
+.box select option {
 	padding: 30px;
-  }
+}
