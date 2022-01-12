@@ -132,7 +132,7 @@ console.log(dates)
         let hour = times[0]
         let minutes = times[1]
         let seconds = times[2]
-
+console.log(month)
         let dateFromChart = new Date(year, month, day, hour, minutes, seconds)
         console.log("FROM CHART: " + dateFromChart.toString())
         console.log("A DAY AGO: " + aDayAgo.toString())
