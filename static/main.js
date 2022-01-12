@@ -116,39 +116,39 @@ function nextweek() {
     var nextweek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 21);
     return nextweek;
 }
-// function showLastDay() {
-//     let dates = dataFromDB.time
-//     let today = new Date();
-//     let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate - 1, today.getHours, today.getMinutes, today.getSeconds);
-//     for (i = ; i < 5; i++) {
-//         let yesterday = new Date();
-//         let words = today.split(' ');
-//         console.log("TYPEOF: " + typeof words)
+function showLastDay() {
+    let dates = dataFromDB.time
+    let today = new Date();
+    let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate - 1, today.getHours, today.getMinutes, today.getSeconds);
+    for (i = 0; i < dates.length; i++) {
 
+        console.log(dates[i].split(' ').split('-')[2])
+        let words = today.split(' ');
+        console.log("TYPEOF: " + typeof words)
 
-//     }
-
-    //console.log("TYPEOF today: " + typeof today)
-    console.log(dataFromDB.time)
-
-    myChart1.data.labels.pop()
-    myChart1.data.labels.pop()
-    myChart1.update()
-    myChart2.update()
-
-
-    function addData(chart, label, data) {
-        chart.data.labels.push(label);
-        chart.data.datasets.forEach((dataset) => {
-            dataset.data.push(data);
-        });
-        chart.update();
     }
+}
 
-    function removeData(chart) {
-        chart.data.labels.pop();
-        chart.data.datasets.forEach((dataset) => {
-            dataset.data.pop();
-        });
-        chart.update();
-    }
+console.log(showLastDay())
+
+myChart1.data.labels.pop()
+myChart1.data.labels.pop()
+myChart1.update()
+myChart2.update()
+
+
+function addData(chart, label, data) {
+    chart.data.labels.push(label);
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(data);
+    });
+    chart.update();
+}
+
+function removeData(chart) {
+    chart.data.labels.pop();
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.pop();
+    });
+    chart.update();
+}
