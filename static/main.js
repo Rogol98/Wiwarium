@@ -116,7 +116,7 @@ function getLastDayLabels() {
         let times = time.split(':')
 
         let year = dates[0]
-        let month = dates[1]-1
+        let month = dates[1] - 1
         let day = dates[2]
 
         let hour = times[0]
@@ -132,14 +132,41 @@ function getLastDayLabels() {
     return lastDayLabels
 }
 
-console.log(getLastDayLabels())
+function getLabelsByTime(fromWhen) {
+    let timeFromDB = dataFromDB.time
+    let lastDayLabels = []
+    for (i = 0; i < timeFromDB.length; i++) {
+        let date = timeFromDB[i].split(' ')[0]
+        let dates = date.split('-')
+        let time = timeFromDB[i].split(' ')[1]
+        let times = time.split(':')
 
+        let year = dates[0]
+        let month = dates[1] - 1
+        let day = dates[2]
 
+        let hour = times[0]
+        let minutes = times[1]
+        let seconds = times[2]
 
-myChart1.data.labels = getLastDayLabels()
-console.log(myChart1.data.datasets.data)
+        let dateFromChart = new Date(year, month, day, hour, minutes, seconds)
+        if (dateFromChart.getTime() > fromWhen.getTime()) {
+            dateToPush = year + '-' + month + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds
+            lastDayLabels.push(dateToPush)
+        }
+    }
+    return lastDayLabels
+}
 
-myChart1.data.datasets[0].data = [32.5,33.1,34.7]
+let today = new Date();
+let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1, today.getHours(), today.getMinutes(), today.getSeconds());
+
+console.log(getLabelsByTime(aDayAgo))
+
+//myChart1.data.labels = getLastDayLabels()
+
+//myChart1.data.datasets[0].data = [32.5, 33.1, 34.7]
+
 myChart1.update()
 
 
