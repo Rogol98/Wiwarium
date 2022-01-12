@@ -123,7 +123,7 @@ function showLastDay() {
         //console.log("TYPEOF: " + typeof words)
         console.log("TYPEOF: " + typeof today)
         //console.log(words)
-        console.log(today)
+        console.log(today.isArray())
         console.log(nextweek())
 
     }
