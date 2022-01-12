@@ -151,7 +151,7 @@ function getLabelsByTime(fromWhen) {
 
         let dateFromChart = new Date(year, month, day, hour, minutes, seconds)
         if (dateFromChart.getTime() > fromWhen.getTime()) {
-            dateToPush = year + '-' + month + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds
+            dateToPush = year + '-' + (month + 1) + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds
             lastDayLabels.push(dateToPush)
         }
     }
