@@ -132,6 +132,7 @@ function showLastDay() {
         // if () {
 
         // }
+        console.log(aDayAgo)
         console.log(aDayAgo.toString())
         //.split('-')[2]
     }
