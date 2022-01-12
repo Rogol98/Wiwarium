@@ -35,7 +35,7 @@
     height: 50vh;
 }
 
-.select {
+.custom-select {
 	position: relative;
 	font-family: Arial;
 	margin: 100px;
