@@ -141,6 +141,8 @@ function showLastDay() {
     }
 }
 
+showLastDay()
+
 myChart1.data.labels.pop()
 myChart1.data.labels.pop()
 myChart1.update()
