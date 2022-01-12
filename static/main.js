@@ -111,6 +111,7 @@ let myChart2 = new Chart(ctx2, configHumidity)
 // removeData(myChart2)
 // removeData(myChart2)
 function nextweek(){
+    console.log("TYPE: "+ typeof dataFromDB.time)
     var today = new Date();
     var nextweek = new Date(today.getFullYear(), today.getMonth(), today.getDate()+21);
     return nextweek;
