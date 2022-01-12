@@ -129,6 +129,7 @@ function showLastDay() {
    myChart1.data.labels.pop()
    myChart1.data.labels.pop()
    myChart1.update()
+   myChart2.update()
 
 
 function addData(chart, label, data) {
