@@ -126,7 +126,7 @@ function showLastDay() {
 }
 let today = dataFromDB.time
 console.log("TYPEOF today: " + typeof today)
-//console.log(words)
+console.log(today)
 console.log(today.isArray())
 console.log(nextweek())
 
