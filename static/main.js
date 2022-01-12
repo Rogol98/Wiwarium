@@ -137,6 +137,8 @@ console.log(getLastDayLabels())
 
 
 myChart1.data.labels = getLastDayLabels()
+console.log(myChart1.data.datasets.data)
+
 myChart1.data.datasets.data = [32.5,33.1,34.7]
 myChart1.update()
 
