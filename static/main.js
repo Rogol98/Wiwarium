@@ -123,7 +123,7 @@ function showLastDay() {
     for (i = 0; i < dates.length; i++) {
         console.log("TYPEOF: " + typeof dates[i])
         console.log(dates[i])//.split(' ').split('-')[2])
-        let words = today.split(' ');
+       // let words = today.split(' ');
 
     }
 }
