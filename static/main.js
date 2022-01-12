@@ -123,7 +123,7 @@ function showLastDay() {
     let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate - 1, today.getHours, today.getMinutes, today.getSeconds);
     for (i = 0; i < dates.length; i++) {
         console.log("TYPEOF: " + typeof dates[i])
-        console.log(dates[i].split(' '))
+        console.log(dates[i].split(' ')[0].split('-')[2])
         //.split('-')[2]
     }
 }
