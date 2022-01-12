@@ -126,14 +126,16 @@ function showLastDay() {
     let today = new Date();
 
     let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate - 1, today.getHours, today.getMinutes, today.getSeconds);
+    console.log(aDayAgo)
+    console.log(aDayAgo.toString())
+
     for (i = 0; i < dates.length; i++) {
         day = dates[i].split(' ')[0]
         time = dates[i].split(' ')[1]
         // if () {
 
         // }
-        console.log(aDayAgo)
-        console.log(aDayAgo.toString())
+
         //.split('-')[2]
     }
 }
