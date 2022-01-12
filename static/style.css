@@ -17,8 +17,9 @@
 	display: block;
 	color: #f2f2f2;
 	text-align: center;
-	padding-bottom: 40px;
+	padding: 14px 16px;
 	text-decoration: none;
+	margin: 50px;
 	font-size: 17px;
 }
 
@@ -35,7 +36,6 @@
 
 #parent {
 	text-align: justify;
-	padding: 100px;
 }
 
 #parent:after {
