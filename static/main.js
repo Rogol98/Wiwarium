@@ -124,7 +124,7 @@ function showLastDay() {
         console.log("TYPEOF: " + typeof today)
         //console.log(words)
         console.log(today)
-        console.log(nextweek)
+        console.log(nextweek())
 
    // }
    // chart.data.labels.pop()
