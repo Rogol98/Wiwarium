@@ -1,3 +1,5 @@
+console.log(dataFromDB)
+
 dataFromDB = dataFromDB.replaceAll('&#39;', '\"')
 dataFromDB = dataFromDB.replaceAll(')', '')
 dataFromDB = dataFromDB.replaceAll('(', '')
@@ -117,7 +119,6 @@ function showLastDay() {
     let today = new Date();
     let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1, today.getHours(), today.getMinutes(), today.getSeconds());
     let lastDayLabels = []
-    console.log(aDayAgo.toString())
 
     for (i = 0; i < timeFromDB.length; i++) {
         let date = timeFromDB[i].split(' ')[0]
