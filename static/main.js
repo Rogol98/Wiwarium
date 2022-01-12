@@ -101,12 +101,12 @@ let configHumidity = {
 let myChart1 = new Chart(ctx1, configTemperature)
 let myChart2 = new Chart(ctx2, configHumidity)
 
-addData(myChart1, "2026.01.12 9:34:49", 30.4)
-addData(myChart1, "2026.01.13 9:34:49", 30.4)
-addData(myChart1, "2026.01.14 9:34:49", 30.4)
-addData(myChart2, "2026.01.15 9:34:49", 51.4)
-addData(myChart2, "2026.01.16 9:34:49", 59.4)
-addData(myChart2, "2026.01.17 9:34:49", 71.4)
+// addData(myChart1, "2026.01.12 9:34:49", 30.4)
+// addData(myChart1, "2026.01.13 9:34:49", 30.4)
+// addData(myChart1, "2026.01.14 9:34:49", 30.4)
+// addData(myChart2, "2026.01.15 9:34:49", 51.4)
+// addData(myChart2, "2026.01.16 9:34:49", 59.4)
+// addData(myChart2, "2026.01.17 9:34:49", 71.4)
 // removeData(myChart2)
 // removeData(myChart2)
 // removeData(myChart2)
@@ -118,7 +118,7 @@ function nextweek(){
 }
 function showLastDay() {
     //for (i = ; i < 5; i++) {
-        let today = new Date();
+        let yesterday = new Date();
         //let words = today.split(' ');
         //console.log("TYPEOF: " + typeof words)
         console.log("TYPEOF: " + typeof today)
@@ -126,9 +126,11 @@ function showLastDay() {
         console.log(today)
         console.log(nextweek())
 
-   // }
-   // chart.data.labels.pop()
-}
+    }
+   myChart1.data.labels.pop()
+   myChart1.data.labels.pop()
+   myChart1.update()
+
 
 function addData(chart, label, data) {
     chart.data.labels.push(label);
