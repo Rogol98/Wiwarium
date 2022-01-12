@@ -4,8 +4,7 @@ dataFromDB = dataFromDB.replaceAll('(', '')
 dataFromDB = JSON.parse(dataFromDB)
 console.log(dataFromDB)
 console.log("TYPEOF: " + typeof dataFromDB)
-console.log(dataFromDB.temperature)
-console.log(dataFromDB.time)
+
 
 
 let ctx1 = document.getElementById("myChart1").getContext("2d");
@@ -116,7 +115,9 @@ showLastDay()
 function showLastDay() {
     //for (i = ; i < 5; i++) {
         let today = new Date();
-        const words = today.split(' ');
+        let words = today.split(' ');
+        console.log("TYPEOF: " + typeof words)
+        console.log("TYPEOF: " + typeof today)
         console.log(words)
         console.log(today)
 
