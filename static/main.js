@@ -124,7 +124,7 @@ function showLastDay() {
         let dates = date.split('-')
         let time = timeFromDB[i].split(' ')[1]
         let times = time.split(':')
-
+console.log(dates)
         let year = dates[0]
         let month = dates[1]
         let day = dates[2]
