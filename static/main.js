@@ -211,9 +211,9 @@ function getLabelsAfterTime(fromWhen) {
         if (dateFromChart.getTime() > fromWhen.getTime()) {
             dateToPush = year + '-'
             if (month + 1 < 10) {
-                dateToPush = +'0'
+                dateToPush += '0'
             }
-            dateToPush = + (month + 1) + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds
+            dateToPush += (month + 1) + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds
             labels.push(dateToPush)
         }
     }
