@@ -9,10 +9,18 @@
 </head>
 
 <body>
-    <h1>HSAHAHHAHAHAAH</h1>
-    <h1>siemankooo</h1>
     <h1>{{ data.temperature }}</h1>
 
+    <div class="box">
+        <select id="selector">
+            <option value="1d">Ostatni dzień</option>
+            <option value="3d">Ostatnie 3 dni</option>
+            <option value="1w">Ostatni tydzień</option>
+            <option value="1m">Ostatni miesiąc</option>
+            <option value="all">Od początku</option>
+        </select>
+    </div>
+    
     <div id="parent">
         <div class="chart">
             <canvas id="myChart1"></canvas>
@@ -20,16 +28,12 @@
         <div class="chart">
             <canvas id="myChart2"></canvas>
         </div>
-    </div>
-
-    <div class="box">
-        <select>
-            <option>Ostatni dzień</option>
-            <option>Ostatnie 3 dni</option>
-            <option>Ostatni tydzień</option>
-            <option>Ostatni miesiąc</option>
-            <option>Od początku</option>
-        </select>
+        <div class="chart">
+            <canvas id="myChart3"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id="myChart4"></canvas>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"

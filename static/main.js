@@ -1,20 +1,19 @@
 dataFromDB = dataFromDB.replaceAll('&#39;', '\"')
 dataFromDB = dataFromDB.replaceAll(')', '')
 dataFromDB = dataFromDB.replaceAll('(', '')
-console.log(dataFromDB)
-
 dataFromDB = JSON.parse(dataFromDB)
-console.log(dataFromDB)
-console.log("TYPEOF: " + typeof dataFromDB)
-
-
 
 let ctx1 = document.getElementById("myChart1").getContext("2d");
 let ctx2 = document.getElementById("myChart2").getContext("2d");
+let ctx3 = document.getElementById("myChart3").getContext("2d");
+let ctx4 = document.getElementById("myChart4").getContext("2d");
 
 let delayed
-
+let today = new Date();
 let labels = dataFromDB.time
+
+document.getElementById("selector").onchange = changeListener;
+
 
 let dataTemperature = {
     labels,
@@ -41,7 +40,7 @@ let dataHumidity = {
 let dataSoilMoisture = {
     labels,
     datasets: [{
-        data: dataFromDB.soil_moisture,
+        data: dataFromDB.soilMoisture.map(i => i / 10.23),
         label: "soil moisture",
         borderColor: "brown",
         tension: 0.3,
@@ -52,7 +51,7 @@ let dataSoilMoisture = {
 let dataLuminosity = {
     labels,
     datasets: [{
-        data: dataFromDB.light_intensity,
+        data: dataFromDB.luminosity,
         label: "luminosity",
         borderColor: "yellow",
         tension: 0.3,
@@ -122,11 +121,76 @@ let configHumidity = {
 
 };
 
+
+let configSoilMoisture = {
+    type: "line",
+    data: dataSoilMoisture,
+    options: {
+        animation: {
+            onComplete: () => {
+                delayed = true;
+            },
+            delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                    delay = context.dataIndex * 50 + context.datasetIndex * 20;
+                }
+                return delay;
+            },
+        },
+        radius: 2,
+        responsive: true,
+        scales: {
+            y: {
+                ticks: {
+                    callback: function (value) {
+                        return Math.round(value * 10) / 10 + "%";
+                    },
+                },
+            },
+        },
+    },
+
+};
+
+let configLuminosity = {
+    type: "line",
+    data: dataLuminosity,
+    options: {
+        animation: {
+            onComplete: () => {
+                delayed = true;
+            },
+            delay: (context) => {
+                let delay = 0;
+                if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                    delay = context.dataIndex * 50 + context.datasetIndex * 20;
+                }
+                return delay;
+            },
+        },
+        radius: 2,
+        responsive: true,
+        scales: {
+            y: {
+                ticks: {
+                    callback: function (value) {
+                        return Math.round(value * 10) / 10 + "lux";
+                    },
+                },
+            },
+        },
+    },
+
+};
+
 let myChart1 = new Chart(ctx1, configTemperature)
 let myChart2 = new Chart(ctx2, configHumidity)
+let myChart3 = new Chart(ctx3, configSoilMoisture)
+let myChart4 = new Chart(ctx4, configLuminosity)
+getLastDayUpdate()
 
-
-function getLabelsByTime(fromWhen) {
+function getLabelsAfterTime(fromWhen) {
     let timeFromDB = dataFromDB.time
     let labels = []
     for (i = 0; i < timeFromDB.length; i++) {
@@ -152,65 +216,64 @@ function getLabelsByTime(fromWhen) {
     return labels
 }
 
-getLastDayUpdate()
+function updateChartsToDate(date){
+    let labelsAfter = getLabelsAfterTime(date)
+    let sliceBegin = labels.length - labelsAfter.length
+    let temperatureAfter = dataFromDB.temperature.slice(sliceBegin, labels.length)
+    let humidityAfter = dataFromDB.humidity.slice(sliceBegin, labels.length)
+    let soilMoistureAfter = dataFromDB.soilMoisture.slice(sliceBegin, labels.length)
+    let luminosityAfter = dataFromDB.luminosity.slice(sliceBegin, labels.length)
+    myChart1.data.labels = labelsAfter
+    myChart1.data.datasets[0].data = temperatureAfter
+    myChart1.update()
+    myChart2.data.labels = labelsAfter
+    myChart2.data.datasets[0].data = humidityAfter
+    myChart2.update()
+    myChart3.data.labels = labelsAfter
+    myChart3.data.datasets[0].data = soilMoistureAfter
+    myChart3.update()
+    myChart4.data.labels = labelsAfter
+    myChart4.data.datasets[0].data = luminosityAfter
+    myChart4.update()
+}
 
 function getLastDayUpdate() {
-    let today = new Date();
     let dateADayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1, today.getHours(), today.getMinutes(), today.getSeconds());
-    let labelsADayAgo = getLabelsByTime(dateADayAgo)
-    let temperatureADayAgo = dataFromDB.temperature.slice(labelsADayAgo.length - 1, labels.length)
-    let humidityADayAgo = dataFromDB.humidity.slice(labelsADayAgo.length - 1, labels.length)
-    let soilMoistureADayAgo
-    let luminosityADayAgo
-    myChart1.data.labels = labelsADayAgo
-    myChart1.data.datasets[0].data = temperatureADayAgo
-    myChart1.update()
-    myChart2.data.labels = labelsADayAgo
-    myChart2.data.datasets[0].data = temperatureADayAgo
-    myChart2.update()
-    
+   updateChartsToDate(dateADayAgo)
 }
 
-function getLast3DaysLabels() {
-    let today = new Date();
-    let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 3, today.getHours(), today.getMinutes(), today.getSeconds());
-    return getLabelsByTime(aDayAgo)
+function getLast3DaysUpdate() {
+    let date3DaysAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 3, today.getHours(), today.getMinutes(), today.getSeconds());
+     updateChartsToDate(date3DaysAgo)
 }
 
-function getLastWeekLabels() {
-    let today = new Date();
-    let aDayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7, today.getHours(), today.getMinutes(), today.getSeconds());
-    let temperatureFromWeek = a
-
-    return getLabelsByTime(aDayAgo)
+function getLastWeekUpdate()   {
+    let dateWeekAgo = new  Date(today.getFullYear(), today.getMonth(), today.getDate() - 7, today.getHours(), today.getMinutes(), today.getSeconds());
+     updateChartsToDate(dateWeekAgo)
 }
 
-function getLastMonthLabels() {
-    let today = new Date();
-    let aDayAgo = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds());
-    return getLabelsByTime(aDayAgo)
+function getLastMonthUpdate() {
+    let dateMonthAgo = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds());
+    updateChartsToDate(dateMonthAgo)
 }
 
-function getAllLabels() {
-    return dataFromDB.time
+function getAllUpdate() {
+    let earliestDateAsInt = -8640000000000000
+    let earliestDatePossible = new Date(earliestDateAsInt)
+    updateChartsToDate(earliestDatePossible)
 }
 
-
-
-
-
-// function addData(chart, label, data) {
-//     chart.data.labels.push(label);
-//     chart.data.datasets.forEach((dataset) => {
-//         dataset.data.push(data);
-//     });
-//     chart.update();
-// }
-
-// function removeData(chart) {
-//     chart.data.labels.pop();
-//     chart.data.datasets.forEach((dataset) => {
-//         dataset.data.pop();
-//     });
-//     chart.update();
-// }
+function changeListener() {
+    let value = this.value;
+    if (value == "1d") {
+      getLastDayUpdate();
+    } else if (value == "3d") {
+      getLast3DaysUpdate();
+    } else if (value == "1w") {
+      getLastWeekUpdate();
+    } else if (value == "1m") {
+      getLastMonthUpdate();
+    } else if (value == "all") {
+      getAllUpdate();
+    }
+  }
