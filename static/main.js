@@ -19,7 +19,7 @@ let dataTemperature = {
     labels,
     datasets: [{
         data: dataFromDB.temperature,
-        label: "temperature",
+        label: "temperatura powietrza",
         borderColor: "green",
         tension: 0.3,
     },
@@ -30,7 +30,7 @@ let dataHumidity = {
     labels,
     datasets: [{
         data: dataFromDB.humidity,
-        label: "humidity",
+        label: "wilgotność powietrza",
         borderColor: "blue",
         tension: 0.3,
     },
@@ -41,7 +41,7 @@ let dataSoilMoisture = {
     labels,
     datasets: [{
         data: dataFromDB.soilMoisture,
-        label: "soil moisture",
+        label: "wilgotność gleby",
         borderColor: "brown",
         tension: 0.3,
     },
@@ -52,7 +52,7 @@ let dataLuminosity = {
     labels,
     datasets: [{
         data: dataFromDB.luminosity,
-        label: "luminosity",
+        label: "natężenie oświetlenia",
         borderColor: "yellow",
         tension: 0.3,
     },
