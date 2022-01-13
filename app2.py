@@ -69,7 +69,7 @@ def diagrams():
    data = {
       'temperature' : get_value_from_DB('''SELECT temperature FROM sensors;'''),
       'humidity' : get_value_from_DB('''SELECT humidity FROM sensors;'''),
-      'soilMoisture' : get_value_from_DB('''SELECT soil_moisture FROM sensors;'''),
+      'soilMoisture' : get_value_from_DB('''SELECT soil_moisture/10.23 FROM sensors;'''),
       'luminosity' : get_value_from_DB('''SELECT light_intensity FROM sensors;'''),
       'time' : get_value_from_DB('''SELECT time FROM sensors;'''),
    }
