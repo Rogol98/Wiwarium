@@ -40,7 +40,7 @@ let dataHumidity = {
 let dataSoilMoisture = {
     labels,
     datasets: [{
-        data: dataFromDB.soilMoisture.map(i => i / 10.23),
+        data: dataFromDB.soilMoisture,
         label: "soil moisture",
         borderColor: "brown",
         tension: 0.3,
