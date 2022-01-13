@@ -221,6 +221,7 @@ function updateChartsToDate(date){
     let sliceBegin = labels.length - labelsAfter.length
     let temperatureAfter = dataFromDB.temperature.slice(sliceBegin, labels.length)
     let humidityAfter = dataFromDB.humidity.slice(sliceBegin, labels.length)
+    console.log()
     let soilMoistureAfter = dataFromDB.soilMoisture.slice(sliceBegin, labels.length)
     let luminosityAfter = dataFromDB.luminosity.slice(sliceBegin, labels.length)
     myChart1.data.labels = labelsAfter

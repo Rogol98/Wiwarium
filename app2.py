@@ -69,8 +69,8 @@ def diagrams():
    data = {
       'temperature' : get_value_from_DB('''SELECT temperature FROM sensors;'''),
       'humidity' : get_value_from_DB('''SELECT humidity FROM sensors;'''),
-      'soil_moisture' : get_value_from_DB('''SELECT soil_moisture FROM sensors;'''),
-      'light_intensity' : get_value_from_DB('''SELECT light_intensity FROM sensors;'''),
+      'soilMoisture' : get_value_from_DB('''SELECT soil_moisture FROM sensors;'''),
+      'luminosity' : get_value_from_DB('''SELECT light_intensity FROM sensors;'''),
       'time' : get_value_from_DB('''SELECT time FROM sensors;'''),
    }
    return render_template('diagrams.html', data=data)
