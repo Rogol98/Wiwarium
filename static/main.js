@@ -209,14 +209,18 @@ function getLabelsAfterTime(fromWhen) {
 
         let dateFromChart = new Date(year, month, day, hour, minutes, seconds)
         if (dateFromChart.getTime() > fromWhen.getTime()) {
-            dateToPush = year + '-' + (month + 1) + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds
+            dateToPush = year + '-'
+            if (month + 1 < 10) {
+                dateToPush = +'0'
+            }
+            dateToPush = + (month + 1) + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds
             labels.push(dateToPush)
         }
     }
     return labels
 }
 
-function updateChartsToDate(date){
+function updateChartsToDate(date) {
     let labelsAfter = getLabelsAfterTime(date)
     let sliceBegin = labels.length - labelsAfter.length
     let temperatureAfter = dataFromDB.temperature.slice(sliceBegin, labels.length)
@@ -240,17 +244,17 @@ function updateChartsToDate(date){
 
 function getLastDayUpdate() {
     let dateADayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1, today.getHours(), today.getMinutes(), today.getSeconds());
-   updateChartsToDate(dateADayAgo)
+    updateChartsToDate(dateADayAgo)
 }
 
 function getLast3DaysUpdate() {
     let date3DaysAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 3, today.getHours(), today.getMinutes(), today.getSeconds());
-     updateChartsToDate(date3DaysAgo)
+    updateChartsToDate(date3DaysAgo)
 }
 
-function getLastWeekUpdate()   {
-    let dateWeekAgo = new  Date(today.getFullYear(), today.getMonth(), today.getDate() - 7, today.getHours(), today.getMinutes(), today.getSeconds());
-     updateChartsToDate(dateWeekAgo)
+function getLastWeekUpdate() {
+    let dateWeekAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7, today.getHours(), today.getMinutes(), today.getSeconds());
+    updateChartsToDate(dateWeekAgo)
 }
 
 function getLastMonthUpdate() {
@@ -267,14 +271,14 @@ function getAllUpdate() {
 function changeListener() {
     let value = this.value;
     if (value == "1d") {
-      getLastDayUpdate();
+        getLastDayUpdate();
     } else if (value == "3d") {
-      getLast3DaysUpdate();
+        getLast3DaysUpdate();
     } else if (value == "1w") {
-      getLastWeekUpdate();
+        getLastWeekUpdate();
     } else if (value == "1m") {
-      getLastMonthUpdate();
+        getLastMonthUpdate();
     } else if (value == "all") {
-      getAllUpdate();
+        getAllUpdate();
     }
-  }
+}
