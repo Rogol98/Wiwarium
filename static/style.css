@@ -29,6 +29,10 @@
 	height: 45vh;
 }
 
+#parent{
+	margin-top: 300px;
+}
+
 #parent .chart {
 	display: inline-block;
 }
