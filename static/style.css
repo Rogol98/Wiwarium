@@ -52,6 +52,7 @@ justify-content: left;}
 	position: absolute;
 	top: 100px;
 	left: 100px;
+	margin-top: 50px;
 }
 
 .box select {
