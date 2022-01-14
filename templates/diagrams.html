@@ -9,17 +9,18 @@
 </head>
 
 <body>
-    <div class="boxHeader">
-        <h2 class="box">Zakres danych:</h2>
-        <div class="box">
-            <select id="selector">
-                <option value="1d">Ostatni dzień</option>
-                <option value="3d">Ostatnie 3 dni</option>
-                <option value="1w">Ostatni tydzień</option>
-                <option value="1m">Ostatni miesiąc</option>
-                <option value="all">Od początku</option>
-            </select>
-        </div>
+    <div class="box-header">
+        <h2 class="header">Zakres danych:</h2>
+    </div>
+
+    <div class="box">
+        <select id="selector">
+            <option value="1d">Ostatni dzień</option>
+            <option value="3d">Ostatnie 3 dni</option>
+            <option value="1w">Ostatni tydzień</option>
+            <option value="1m">Ostatni miesiąc</option>
+            <option value="all">Od początku</option>
+        </select>
     </div>
     <div class="parent">
         <div class="chart">
@@ -39,13 +40,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"
         integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
-            // var myChart1 = new Chart(
-            //     document.getElementById('myChart1'),
-            //     config
-            // );
         </script>
-    <!-- <script type="module" src="/static/main.js"></script> -->
-
     <script type="text/javascript">
         var dataFromDB = '{{ data }}'
     </script>
