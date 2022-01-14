@@ -1,3 +1,7 @@
+html{
+	background: url(static/background.png) no-repeat center center fixed;
+}
+
 .boxHeader {
 justify-content: left;}
 
