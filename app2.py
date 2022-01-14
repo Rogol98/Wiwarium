@@ -25,7 +25,7 @@ for pin in pins:
     GPIO.output(pin, GPIO.HIGH)
 
 
-@app.route("/")
+@app.route("/controlPanel")
 def main():
     # For each pin, read the pin state and store it in the pins dictionary:
     for pin in pins:
@@ -34,7 +34,7 @@ def main():
     templateData = {
         'pins': pins
     }
-    return render_template('main.html', **templateData)
+    return render_template('controlPanel.html', **templateData)
 
 # The function below is executed when someone requests an URL with the pin number and action in it:
 
@@ -63,7 +63,7 @@ def action(pinNumber, action):
     return render_template('controlPanel.html', **templateData)
 
 
-@app.route("/controlPanel")
+@app.route("/")
 def controlPanel():
     return render_template('controlPanel.html')
 
