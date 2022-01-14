@@ -6,10 +6,6 @@ html {
 	background-size: cover;
 }
 
-.boxHeader {
-	margin-top: 70px;
-}
-
 .navbar {
 	overflow: hidden;
 	background-color: #333;
@@ -55,6 +51,11 @@ html {
 	left: 100px;
 }
 
+.boxHeader {
+	margin-top: 70px;
+	margin-left: 50px;
+}
+
 .boxSelect select {
 	background-color: #0563af;
 	color: white;
@@ -66,6 +67,7 @@ html {
 	-webkit-appearance: button;
 	appearance: button;
 	outline: none;
+	margin-left: 50px;
 }
 
 .boxSelect::before {
