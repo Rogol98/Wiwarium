@@ -1,3 +1,7 @@
+.header {
+	top: 100px
+}
+
 .navbar {
 	overflow: hidden;
 	background-color: #333;
@@ -29,7 +33,7 @@
 	height: 45vh;
 }
 
-.parent{
+.parent {
 	margin-top: 140px;
 }
 
