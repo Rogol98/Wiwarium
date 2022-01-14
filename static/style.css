@@ -39,8 +39,7 @@
 
 .box {
 	position: absolute;
-	margin-left: 500px;
-	margin-bottom: 150px;
+	top: 100px
 }
 
 .box select {
