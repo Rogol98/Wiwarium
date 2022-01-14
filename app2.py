@@ -34,7 +34,7 @@ def main():
     templateData = {
         'pins': pins
     }
-    return render_template('controlPanel.html', **templateData)
+    return render_template('main.html', **templateData)
 
 # The function below is executed when someone requests an URL with the pin number and action in it:
 
