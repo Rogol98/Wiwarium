@@ -33,8 +33,7 @@ def main():
     templateData = {
         'pins': pins
     }
-    # Pass the template data into the template main.html and return it to the user
-    return render_template('main.html', **templateData)
+    return render_template('controlPanel.html', **templateData)
 
 # The function below is executed when someone requests an URL with the pin number and action in it:
 
@@ -61,7 +60,7 @@ def action(pinNumber, action):
         'pins': pins
     }
 
-    return render_template('main.html', **templateData)
+    return render_template('controlPanel.html', **templateData)
 
 
 @app.route("/diagrams")
@@ -77,11 +76,6 @@ def diagrams():
 
 
 def create_connection(db_file):
-    """ create a database connection to the SQLite database
-        specified by db_file
-    :param db_file: database file
-    :return: Connection object or None
-    """
     conn = None
     try:
         conn = sqlite3.connect(db_file)
