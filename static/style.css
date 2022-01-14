@@ -37,11 +37,11 @@ html {
 	height: 45vh;
 }
 
-.parent {
-	margin-top: 40px;
+.chartsDiv {
+	margin-top: 20px;
 }
 
-.parent .chart {
+.chartsDiv .chart {
 	display: inline-block;
 }
 
