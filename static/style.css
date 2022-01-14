@@ -40,7 +40,8 @@
 .box {
 	position: absolute;
 	transform: translate(-50%, -50%);
-	margin-left: 300px;
+	margin-left: 500px;
+	margin-bottom: 50px;
 	padding: 100px;
 }
 
