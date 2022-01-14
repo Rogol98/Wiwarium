@@ -29,18 +29,18 @@
 	height: 45vh;
 }
 
-#parent{
+.parent{
 	margin-top: 140px;
 }
 
-#parent .chart {
+.parent .chart {
 	display: inline-block;
 }
 
 .box {
 	position: absolute;
 	margin-left: 500px;
-	margin-bottom: 50px;
+	margin-bottom: 150px;
 	padding: 100px;
 }
 
