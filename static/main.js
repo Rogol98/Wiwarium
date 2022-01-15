@@ -70,7 +70,7 @@ let configTemperature = {
             delay: (context) => {
                 let delay = 0;
                 if (context.type === 'data' && context.mode === 'default' && !delayed) {
-                    delay = context.dataIndex * 25 + context.datasetIndex * 20;
+                    delay = context.dataIndex * 25 + context.datasetIndex * 9;
                 }
                 return delay;
             },
@@ -101,7 +101,7 @@ let configHumidity = {
             delay: (context) => {
                 let delay = 0;
                 if (context.type === 'data' && context.mode === 'default' && !delayed) {
-                    delay = context.dataIndex * 25 + context.datasetIndex * 20;
+                    delay = context.dataIndex * 25 + context.datasetIndex * 9;
                 }
                 return delay;
             },
@@ -133,7 +133,7 @@ let configSoilMoisture = {
             delay: (context) => {
                 let delay = 0;
                 if (context.type === 'data' && context.mode === 'default' && !delayed) {
-                    delay = context.dataIndex * 25 + context.datasetIndex * 20;
+                    delay = context.dataIndex * 25 + context.datasetIndex * 9;
                 }
                 return delay;
             },
@@ -164,7 +164,7 @@ let configLuminosity = {
             delay: (context) => {
                 let delay = 0;
                 if (context.type === 'data' && context.mode === 'default' && !delayed) {
-                    delay = context.dataIndex * 25 + context.datasetIndex * 20;
+                    delay = context.dataIndex * 25 + context.datasetIndex * 9;
                 }
                 return delay;
             },
