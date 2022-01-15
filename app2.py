@@ -65,7 +65,7 @@ def action(pinNumber, action):
 
 @app.route("/")
 def controlPanel():
-    return render_template('controlPanel.html')
+    return render_template('main.html')
 
 @app.route("/diagrams")
 def diagrams():
