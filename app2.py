@@ -151,10 +151,10 @@ def runApp():
 
 
 if __name__ == "__main__":
-
-    t1 = threading.Thread(target=runApp)
+    app.run(host='0.0.0.0', port=80, debug=True)
+    # t1 = threading.Thread(target=runApp)
     t2 = threading.Thread(target=main)
-    t1.start()
+    # t1.start()
     t2.start()
-    t1.join()
+    # t1.join()
     t2.join()
