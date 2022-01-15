@@ -131,30 +131,32 @@ def get_value_from_DB(query):
 
 
 def main():
-    while True:
-        light_intensity = round(sensor.lux, 1)
-        soil_moisture = read_channel(0)
-        humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
-        humidity = round(humidity, 1)
-        temperature = round(temperature, 1)
-        timestamp = time.strftime(('%Y-%m-%d %H:%M:%S'))
-        conn = create_connection(database)
-        with conn:
-            values = (humidity,soil_moisture,temperature,light_intensity,timestamp)
-            query_insert(conn, values)
-        time.sleep(30)
-        print("Done!")
+    print("inside main")
+    light_intensity = round(sensor.lux, 1)
+    soil_moisture = read_channel(0)
+    humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
+    humidity = round(humidity, 1)
+    temperature = round(temperature, 1)
+    timestamp = time.strftime(('%Y-%m-%d %H:%M:%S'))
+    conn = create_connection(database)
+    with conn:
+        values = (humidity, soil_moisture, temperature,
+                  light_intensity, timestamp)
+        query_insert(conn, values)
+    print("Done!")
+
+    time.sleep(30)
 
 
 def runApp():
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='0.0.0.0', port=80, debug=True, threaded=True)
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80, debug=True)
-    # t1 = threading.Thread(target=runApp)
+    print("started program")
+    t1 = threading.Thread(target=runApp)
     t2 = threading.Thread(target=main)
-    # t1.start()
+    t1.start()
     t2.start()
-    # t1.join()
+    t1.join()
     t2.join()
