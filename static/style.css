@@ -6,6 +6,11 @@ html {
 	background-size: cover;
 }
 
+.mainHeader{
+	margin-top: 200px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
 .navbar {
 	overflow: hidden;
 	background-color: #333;
