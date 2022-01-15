@@ -6,9 +6,11 @@ html {
 	background-size: cover;
 }
 
-.mainHeader{
+.mainHeader {
 	margin-top: 200px;
 	font-family: Arial, Helvetica, sans-serif;
+	color: darkolivegreen;
+	justify-content: center;
 }
 
 .navbar {
