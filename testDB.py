@@ -41,7 +41,7 @@ def create_connection(db_file):
 
     return conn
 
-def query(conn, values):
+def queryInsert(conn, values):
     sql = ''' INSERT INTO sensors (humidity,soil_moisture,temperature,light_intensity,time) values (?,?,?,?,?);'''
     cur = conn.cursor()
     cur.execute(sql, values)
@@ -59,7 +59,7 @@ def main():
     conn = create_connection(database)
     with conn:
         values = (humidity,soil_moisture,temperature,light_intensity,timestamp)
-        query(conn, values)
+        queryInsert(conn, values)
 
 if __name__ == '__main__':
     main()
