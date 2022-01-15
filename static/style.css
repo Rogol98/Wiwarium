@@ -10,7 +10,7 @@ html {
 	margin-top: 200px;
 	font-family: Arial, Helvetica, sans-serif;
 	color: darkolivegreen;
-	justify-content: center;
+	text-align: center;
 }
 
 .navbar {
