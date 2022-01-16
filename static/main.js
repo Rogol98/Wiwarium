@@ -188,7 +188,7 @@ let myChart1 = new Chart(ctx1, configTemperature)
 let myChart2 = new Chart(ctx2, configHumidity)
 let myChart3 = new Chart(ctx3, configSoilMoisture)
 let myChart4 = new Chart(ctx4, configLuminosity)
-getLastDayUpdate()
+getLast6HoursUpdate()
 
 function getLabelsAfterTime(fromWhen) {
     let timeFromDB = dataFromDB.time
