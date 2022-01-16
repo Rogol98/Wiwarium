@@ -146,7 +146,7 @@ def main():
             query_insert(conn, values)
         print("Done!")
 
-        time.sleep(30)
+        time.sleep(300)
 
 
 def runApp():
