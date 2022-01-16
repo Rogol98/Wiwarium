@@ -242,6 +242,11 @@ function updateChartsToDate(date) {
     myChart4.update()
 }
 
+function getLast6HoursUpdate() {
+    let dateADayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate(), today.getHours() - 6, today.getMinutes(), today.getSeconds());
+    updateChartsToDate(dateADayAgo)
+}
+
 function getLastDayUpdate() {
     let dateADayAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1, today.getHours(), today.getMinutes(), today.getSeconds());
     updateChartsToDate(dateADayAgo)
@@ -270,7 +275,9 @@ function getAllUpdate() {
 
 function changeListener() {
     let value = this.value;
-    if (value == "1d") {
+    if (value == "6h") {
+        getLast6HoursUpdate();
+    } else if (value == "1d") {
         getLastDayUpdate();
     } else if (value == "3d") {
         getLast3DaysUpdate();
