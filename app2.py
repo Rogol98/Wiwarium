@@ -45,7 +45,6 @@ for pin in pins:
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, GPIO.HIGH)
 
-
 @app.route("/controlPanel")
 def main():
     # For each pin, read the pin state and store it in the pins dictionary:
@@ -57,14 +56,10 @@ def main():
     }
     return render_template('controlPanel.html', **templateData)
 
-
 @app.route("/<pinNumber>/<action>")
 def action(pinNumber, action):
-    # Convert the pin from the URL into an integer:
     pinNumber = int(pinNumber)
-    # If the action part of the URL is "on," execute the code indented below:
     if action == "on":
-        # Set the pin high:
         GPIO.output(pinNumber, GPIO.HIGH)
     if action == "off":
         GPIO.output(pinNumber, GPIO.LOW)
@@ -79,23 +74,20 @@ def action(pinNumber, action):
     }
     return render_template('controlPanel.html', **templateData)
 
-
 @app.route("/")
 def control_panel():
     return render_template('main.html')
-
 
 @app.route("/diagrams")
 def diagrams():
     data = {
         'temperature': get_value_from_DB('''SELECT temperature FROM sensors;'''),
         'humidity': get_value_from_DB('''SELECT humidity FROM sensors;'''),
-        'soilMoisture': get_value_from_DB('''SELECT soil_moisture/10.23 FROM sensors;'''),
+        'soilMoisture': get_value_from_DB('''SELECT 100-soil_moisture/10.23 FROM sensors;'''),
         'luminosity': get_value_from_DB('''SELECT light_intensity FROM sensors;'''),
         'time': get_value_from_DB('''SELECT time FROM sensors;'''),
     }
     return render_template('diagrams.html', data=data)
-
 
 def create_connection(db_file):
     conn = None
@@ -106,7 +98,6 @@ def create_connection(db_file):
 
     return conn
 
-
 def query_select(conn, query):
     cur = conn.cursor()
     cur.execute(query)
@@ -115,20 +106,17 @@ def query_select(conn, query):
     conn.commit()
     return values
 
-
 def query_insert(conn, values):
     sql = ''' INSERT INTO sensors (humidity,soil_moisture,temperature,light_intensity,time) values (?,?,?,?,?);'''
     cur = conn.cursor()
     cur.execute(sql, values)
     conn.commit()
 
-
 def get_value_from_DB(query):
     conn = create_connection(database)
     with conn:
         value = query_select(conn, query)
     return value
-
 
 def main():
     while True:
@@ -147,7 +135,6 @@ def main():
         print("Done!")
 
         time.sleep(300)
-
 
 def runApp():
     app.run(host='0.0.0.0', port=80, debug=False, threaded=True)
