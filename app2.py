@@ -34,7 +34,6 @@ app = Flask(__name__)
 
 database = r"/home/pi/Wiwarium/sqlite3DB"
 
-# Create a dictionary called pins to store the pin number, name, and pin state:
 pins = {
     17: {'name': 'GPIO 17', 'state': GPIO.LOW},
     27: {'name': 'GPIO 27', 'state': GPIO.LOW}
@@ -47,10 +46,8 @@ for pin in pins:
 
 @app.route("/controlPanel")
 def main():
-    # For each pin, read the pin state and store it in the pins dictionary:
     for pin in pins:
         pins[pin]['state'] = GPIO.input(pin)
-    # Put the pin dictionary into the template data dictionary:
     templateData = {
         'pins': pins
     }
@@ -64,11 +61,9 @@ def action(pinNumber, action):
     if action == "off":
         GPIO.output(pinNumber, GPIO.LOW)
 
-    # For each pin, read the pin state and store it in the pins dictionary:
     for pin in pins:
         pins[pin]['state'] = GPIO.input(pin)
 
-    # Along with the pin dictionary, put the message into the template data dictionary:
     templateData = {
         'pins': pins
     }
