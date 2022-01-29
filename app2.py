@@ -121,6 +121,7 @@ def main():
         humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
         humidity = round(humidity, 1)
         temperature = round(temperature, 1)
+        soil_moisture = round(soil_moisture, 1)
         timestamp = time.strftime(('%Y-%m-%d %H:%M:%S'))
         conn = create_connection(database)
         with conn:
@@ -129,7 +130,7 @@ def main():
             query_insert(conn, values)
         print("Done!")
 
-        time.sleep(300)
+        time.sleep(600)
 
 def runApp():
     app.run(host='0.0.0.0', port=80, debug=False, threaded=True)
