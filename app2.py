@@ -78,7 +78,7 @@ def diagrams():
     data = {
         'temperature': get_value_from_DB('''SELECT temperature FROM sensors;'''),
         'humidity': get_value_from_DB('''SELECT humidity FROM sensors;'''),
-        'soilMoisture': get_value_from_DB('''SELECT 100-soil_moisture/10.23 FROM sensors;'''),
+        'soilMoisture': get_value_from_DB('''SELECT ROUND(100-soil_moisture/10.23,1) FROM sensors;'''),
         'luminosity': get_value_from_DB('''SELECT light_intensity FROM sensors;'''),
         'time': get_value_from_DB('''SELECT time FROM sensors;'''),
     }
@@ -121,7 +121,6 @@ def main():
         humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
         humidity = round(humidity, 1)
         temperature = round(temperature, 1)
-        soil_moisture = round(soil_moisture, 1)
         timestamp = time.strftime(('%Y-%m-%d %H:%M:%S'))
         conn = create_connection(database)
         with conn:
