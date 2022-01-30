@@ -54,7 +54,7 @@ let dataLuminosity = {
         data: dataFromDB.luminosity,
         label: "natężenie oświetlenia",
         borderColor: "yellow",
-        tension: 1,
+        tension: 0.3,
     },
     ],
 };
@@ -75,7 +75,7 @@ let configTemperature = {
                 return delay;
             },
         },
-        radius: 2,
+        radius: 1,
         responsive: true,
         scales: {
             y: {
@@ -106,7 +106,7 @@ let configHumidity = {
                 return delay;
             },
         },
-        radius: 2,
+        radius: 1,
         responsive: true,
         scales: {
             y: {
@@ -138,7 +138,7 @@ let configSoilMoisture = {
                 return delay;
             },
         },
-        radius: 2,
+        radius: 1,
         responsive: true,
         scales: {
             y: {
@@ -169,7 +169,7 @@ let configLuminosity = {
                 return delay;
             },
         },
-        radius: 2,
+        radius: 1,
         responsive: true,
         scales: {
             y: {
