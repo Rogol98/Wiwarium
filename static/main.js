@@ -22,6 +22,7 @@ let dataTemperature = {
         label: "temperatura powietrza",
         borderColor: "green",
         tension: 0.3,
+        pointRadius: 1,
     },
     ],
 };
@@ -33,6 +34,7 @@ let dataHumidity = {
         label: "wilgotność powietrza",
         borderColor: "blue",
         tension: 0.3,
+        pointRadius: 1,
     },
     ],
 };
@@ -44,6 +46,7 @@ let dataSoilMoisture = {
         label: "wilgotność gleby",
         borderColor: "brown",
         tension: 0.3,
+        pointRadius: 1,
     },
     ],
 };
@@ -55,6 +58,7 @@ let dataLuminosity = {
         label: "natężenie oświetlenia",
         borderColor: "yellow",
         tension: 0.3,
+        pointRadius: 1,
     },
     ],
 };
@@ -76,7 +80,6 @@ let configTemperature = {
             },
         },
         radius: 1,
-        pointRadius: 0.01,
         responsive: true,
         scales: {
             y: {
@@ -108,7 +111,6 @@ let configHumidity = {
             },
         },
         radius: 1,
-        pointRadius: 0.01,
         responsive: true,
         scales: {
             y: {
@@ -141,7 +143,6 @@ let configSoilMoisture = {
             },
         },
         radius: 1,
-        pointRadius: 0.01,
         responsive: true,
         scales: {
             y: {
@@ -173,7 +174,6 @@ let configLuminosity = {
             },
         },
         radius: 1,
-        pointRadius: 0.01,
         responsive: true,
         scales: {
             y: {
