@@ -54,7 +54,7 @@ let dataLuminosity = {
         data: dataFromDB.luminosity,
         label: "natężenie oświetlenia",
         borderColor: "yellow",
-        tension: 0.3,
+        tension: 1,
     },
     ],
 };
