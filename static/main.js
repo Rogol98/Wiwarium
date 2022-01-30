@@ -75,7 +75,8 @@ let configTemperature = {
                 return delay;
             },
         },
-        radius: 10,
+        radius: 1,
+        pointRadius: 1,
         responsive: true,
         scales: {
             y: {
@@ -106,7 +107,8 @@ let configHumidity = {
                 return delay;
             },
         },
-        radius: 10,
+        radius: 1,
+        pointRadius: 1,
         responsive: true,
         scales: {
             y: {
@@ -138,7 +140,8 @@ let configSoilMoisture = {
                 return delay;
             },
         },
-        radius: 10,
+        radius: 1,
+        pointRadius: 0.5,
         responsive: true,
         scales: {
             y: {
@@ -169,7 +172,8 @@ let configLuminosity = {
                 return delay;
             },
         },
-        radius: 10,
+        radius: 1,
+        pointRadius: 1,
         responsive: true,
         scales: {
             y: {
