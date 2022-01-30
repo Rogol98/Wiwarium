@@ -76,7 +76,7 @@ let configTemperature = {
             },
         },
         radius: 1,
-        pointRadius: 1,
+        pointRadius: 0.01,
         responsive: true,
         scales: {
             y: {
@@ -108,7 +108,7 @@ let configHumidity = {
             },
         },
         radius: 1,
-        pointRadius: 1,
+        pointRadius: 0.01,
         responsive: true,
         scales: {
             y: {
@@ -141,7 +141,7 @@ let configSoilMoisture = {
             },
         },
         radius: 1,
-        pointRadius: 0.5,
+        pointRadius: 0.01,
         responsive: true,
         scales: {
             y: {
@@ -173,7 +173,7 @@ let configLuminosity = {
             },
         },
         radius: 1,
-        pointRadius: 1,
+        pointRadius: 0.01,
         responsive: true,
         scales: {
             y: {
