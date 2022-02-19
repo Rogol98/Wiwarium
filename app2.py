@@ -36,13 +36,15 @@ database = r"/home/pi/Wiwarium/sqlite3DB"
 
 pins = {
     17: {'name': 'GPIO 17', 'state': GPIO.LOW},
-    27: {'name': 'GPIO 27', 'state': GPIO.LOW}
+    27: {'name': 'GPIO 27', 'state': GPIO.LOW}, 
+    23: {'name': 'GPIO 23', 'state': GPIO.LOW},
+    24: {'name': 'GPIO 24', 'state': GPIO.LOW}
 }
 
 # Set each pin as an output and make it low:
 for pin in pins:
     GPIO.setup(pin, GPIO.OUT)
-    GPIO.output(pin, GPIO.HIGH)
+    GPIO.output(pin, GPIO.LOW)
 
 @app.route("/controlPanel")
 def main():
