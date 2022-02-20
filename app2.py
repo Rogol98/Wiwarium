@@ -44,7 +44,7 @@ pins = {
 # Set each pin as an output and make it low:
 for pin in pins:
     GPIO.setup(pin, GPIO.OUT)
-    GPIO.output(pin, GPIO.LOW)
+    GPIO.output(pin, GPIO.HIGH)
 
 @app.route("/controlPanel")
 def main():
