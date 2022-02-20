@@ -30,6 +30,9 @@
       {% endfor %}
    </div>
 
+
+
+
    <div class="margin" style="margin-top: 50px;">
       <h2>Mata grzewcza jest teraz
          {% if pins[17].state == true %}
@@ -49,7 +52,59 @@
       </div>
       {% endif %}
 
+      <h2>pompa jest teraz
+         {% if pins[27].state == true %}
+         <strong>wyłączona</strong>
+      </h2>
+      <div class="row">
+         <div class="col-md-2">
+            <a href="/27/off" class="button">włącz pompę</a>
+         </div>
+      </div>
+      {% else %}
+      <strong>włączona</strong></h2>
+      <div class="row">
+         <div class="col-md-2">
+            <a href="/27/on" class="button">wyłącz pompę</a>
+         </div>
+      </div>
+      {% endif %}
 
+      <h2>Lampa jest teraz
+         {% if pins[23].state == true %}
+         <strong>wyłączona</strong>
+      </h2>
+      <div class="row">
+         <div class="col-md-2">
+            <a href="/23/off" class="button">włącz lampę</a>
+         </div>
+      </div>
+      {% else %}
+      <strong>włączona</strong></h2>
+      <div class="row">
+         <div class="col-md-2">
+            <a href="/23/on" class="button">wyłącz lampę</a>
+         </div>
+      </div>
+      {% endif %}
+
+      <h2>Wentylator jest teraz
+         {% if pins[24].state == true %}
+         <strong>wyłączony</strong>
+      </h2>
+      <div class="row">
+         <div class="col-md-2">
+            <a href="/24/off" class="button">włącz wentylator</a>
+         </div>
+      </div>
+      {% else %}
+      <strong>włączony</strong></h2>
+      <div class="row">
+         <div class="col-md-2">
+            <a href="/24/on" class="button">wyłącz wentylator</a>
+         </div>
+      </div>
+      {% endif %}
 
    </div>
 
