@@ -10,30 +10,6 @@
 
 <body>
    <div class="margin" style="margin-top: 50px;">
-      {% for pin in pins %}
-      <h2>{{ pins[pin].name }}
-         {% if pins[pin].state == true %}
-         jest teraz <strong>on</strong></h2>
-      <div class="row">
-         <div class="col-md-2">
-            <a href="/{{pin}}/off" class="button">Turn off</a>
-         </div>
-      </div>
-      {% else %}
-      is currently <strong>off</strong></h2>
-      <div class="row">
-         <div class="col-md-2">
-            <a href="/{{pin}}/on" class="button">Turn on</a>
-         </div>
-      </div>
-      {% endif %}
-      {% endfor %}
-   </div>
-
-
-
-
-   <div class="margin" style="margin-top: 50px;">
       <h2>Mata grzewcza jest teraz
          {% if pins[17].state == true %}
          <strong>wyłączona</strong>
@@ -52,7 +28,7 @@
       </div>
       {% endif %}
 
-      <h2>pompa jest teraz
+      <h2>Pompa jest teraz
          {% if pins[27].state == true %}
          <strong>wyłączona</strong>
       </h2>
