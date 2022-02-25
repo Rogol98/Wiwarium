@@ -12,7 +12,7 @@
    <div class="margin" style="margin-top: 50px;">
       <h2>Mata grzewcza jest teraz
          {% if pins[17].state == true %}
-         <strong>wyłączona</strong>
+         <strong style="color:red;">wyłączona</strong>
       </h2>
       <div class="row">
          <div class="col-md-2">
@@ -20,7 +20,7 @@
          </div>
       </div>
       {% else %}
-      <strong>włączona</strong></h2>
+      <strong style="color: green;">włączona</strong></h2>
       <div class="row">
          <div class="col-md-2">
             <a href="/17/on" class="button">wyłącz matę grzewczą</a>
@@ -30,7 +30,7 @@
 
       <h2>Pompa jest teraz
          {% if pins[27].state == true %}
-         <strong>wyłączona</strong>
+         <strong style="color:red;">wyłączona</strong>
       </h2>
       <div class="row">
          <div class="col-md-2">
@@ -38,7 +38,7 @@
          </div>
       </div>
       {% else %}
-      <strong>włączona</strong></h2>
+      <strong style="color: green;">włączona</strong></h2>
       <div class="row">
          <div class="col-md-2">
             <a href="/27/on" class="button">wyłącz pompę</a>
@@ -48,7 +48,7 @@
 
       <h2>Lampa jest teraz
          {% if pins[23].state == true %}
-         <strong>wyłączona</strong>
+         <strong style="color:red;">wyłączona</strong>
       </h2>
       <div class="row">
          <div class="col-md-2">
@@ -56,7 +56,7 @@
          </div>
       </div>
       {% else %}
-      <strong>włączona</strong></h2>
+      <strong style="color: green;">włączona</strong></h2>
       <div class="row">
          <div class="col-md-2">
             <a href="/23/on" class="button">wyłącz lampę</a>
@@ -66,7 +66,7 @@
 
       <h2>Wentylator jest teraz
          {% if pins[24].state == true %}
-         <strong>wyłączony</strong>
+         <strong style="color:red;">wyłączony</strong>
       </h2>
       <div class="row">
          <div class="col-md-2">
@@ -74,7 +74,7 @@
          </div>
       </div>
       {% else %}
-      <strong>włączony</strong></h2>
+      <strong style="color: green;">włączony</strong></h2>
       <div class="row">
          <div class="col-md-2">
             <a href="/24/on" class="button">wyłącz wentylator</a>

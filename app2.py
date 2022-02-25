@@ -20,8 +20,8 @@ spi.max_speed_hz = 1000000
 
 GPIO.setmode(GPIO.BCM)
 
-DHT_SENSOR = Adafruit_DHT.DHT22
-DHT_PIN = 4
+dht_symbol = Adafruit_DHT.DHT22
+dht_pin = 4
 
 
 def read_channel(channel):
@@ -119,7 +119,7 @@ def main():
     while True:
         light_intensity = round(sensor.lux, 1)
         soil_moisture = read_channel(0)
-        humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
+        humidity, temperature = Adafruit_DHT.read_retry(dht_symbol, dht_pin)
         humidity = round(humidity, 1)
         temperature = round(temperature, 1)
         timestamp = time.strftime(('%Y-%m-%d %H:%M:%S'))
