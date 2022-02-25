@@ -117,7 +117,6 @@ def get_value_from_DB(query):
 
 def main():
     while True:
-        print("inside main")
         light_intensity = round(sensor.lux, 1)
         soil_moisture = read_channel(0)
         humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
@@ -129,7 +128,6 @@ def main():
             values = (humidity, soil_moisture, temperature,
                     light_intensity, timestamp)
             query_insert(conn, values)
-        print("Done!")
 
         time.sleep(600)
 
