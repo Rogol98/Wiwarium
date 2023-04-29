@@ -32,7 +32,7 @@ def read_channel(channel):
 
 app = Flask(__name__)
 
-database = r"/home/rogol/Wiwarium/sqlite3DB"
+database = r"/home/rogol/Wiwarium/sensorsData.db"
 
 pins = {
     17: {'name': 'GPIO 17', 'state': GPIO.LOW},
